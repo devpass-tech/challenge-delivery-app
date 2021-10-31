@@ -2,51 +2,51 @@
 	{
 		"street": "Rua Augusta",
 		"number": "495",
-		"neighborhood": "Consolação",
+		"neighborhood": "Consolação"
 	},
 	{
 		"street": "Rua Alba",
 		"number": "108",
-		"neighborhood": "Parque Jabaquara",
+		"neighborhood": "Parque Jabaquara"
 	},
-		{
+	{
 		"street": "Rua Aurora",
 		"number": "462",
-		"neighborhood": "Santa Ifigênia",
+		"neighborhood": "Santa Ifigênia"
 	},
-		{
+	{
 		"street": "Rua Alberto Cintra",
 		"number": "392",
-		"neighborhood": "União",
+		"neighborhood": "União"
 	},
-		{
+	{
 		"street": "Rua Aspicuelta",
 		"number": "245",
-		"neighborhood": "Alto de Pinheiros",
+		"neighborhood": "Alto de Pinheiros"
 	},
-		{
+	{
 		"street": "Rua Bresser",
 		"number": "1087",
-		"neighborhood": "Brás",
+		"neighborhood": "Brás"
 	},
-		{
+	{
 		"street": "Rua Barão de Ladário",
 		"number": "409",
-		"neighborhood": "Brás",
+		"neighborhood": "Brás"
 	},
-		{
+	{
 		"street": "Rua Bela Cintra",
 		"number": "859",
-		"neighborhood": "Consolação",
+		"neighborhood": "Consolação"
 	},
-		{
+	{
 		"street": "Rua Borges Lagoa",
 		"number": "120",
-		"neighborhood": "Vila Clementino",
+		"neighborhood": "Vila Clementino"
 	},
-		{
+	{
 		"street": "Rua Barata Ribeiro",
 		"number": "710",
-		"neighborhood": "Copacabana",
-	},
+		"neighborhood": "Copacabana"
+	}
 ]
