@@ -18,7 +18,6 @@
 		98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
 		98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055D272A0949007B0228 /* RestaurantListViewController.swift */; };
 		98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */; };
-		98EA0564272A09DC007B0228 /* MenuItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0563272A09DC007B0228 /* MenuItemDetailsViewController.swift */; };
 		98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		98EA055A272A092F007B0228 /* AddressSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
 		98EA055D272A0949007B0228 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
-		98EA0563272A09DC007B0228 /* MenuItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailsViewController.swift; sourceTree = "<group>"; };
 		98EA0565272A0A0F007B0228 /* DeliveryApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,7 +158,6 @@
 				98EA0559272A08D7007B0228 /* AddressSearch */,
 				98EA055C272A0933007B0228 /* RestaurantList */,
 				98EA055F272A0950007B0228 /* RestaurantDetails */,
-				98EA0562272A09BA007B0228 /* MenuItemDetails */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -217,14 +214,6 @@
 				98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */,
 			);
 			path = RestaurantDetails;
-			sourceTree = "<group>";
-		};
-		98EA0562272A09BA007B0228 /* MenuItemDetails */ = {
-			isa = PBXGroup;
-			children = (
-				98EA0563272A09DC007B0228 /* MenuItemDetailsViewController.swift */,
-			);
-			path = MenuItemDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +349,6 @@
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
-				98EA0564272A09DC007B0228 /* MenuItemDetailsViewController.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
 				983271BD272752AF0010C63A /* AppDelegate.swift in Sources */,
 				983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */,
