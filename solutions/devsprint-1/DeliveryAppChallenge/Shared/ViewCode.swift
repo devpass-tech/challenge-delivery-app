@@ -30,5 +30,5 @@ extension ViewCode {
         setupExtraConfiguration()
     }
     
-    func setupExtraConfiguration(){}
+    func setupExtraConfiguration() {}
 }
