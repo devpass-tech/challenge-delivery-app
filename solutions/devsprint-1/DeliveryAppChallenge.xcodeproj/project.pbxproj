@@ -107,7 +107,7 @@
 		983271BB272752AF0010C63A /* DeliveryAppChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				F57124662731C46300B48379 /* Shared */,
+				F57124662731C46300B48379 /* Components */,
 				983271EC272752C50010C63A /* Resources */,
 				983271ED272752D20010C63A /* AppDelegate */,
 				983271EE272752EE0010C63A /* Screens */,
@@ -219,12 +219,12 @@
 			path = RestaurantDetails;
 			sourceTree = "<group>";
 		};
-		F57124662731C46300B48379 /* Shared */ = {
+		F57124662731C46300B48379 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				F57124672731C4EA00B48379 /* ViewCode.swift */,
 			);
-			path = Shared;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
