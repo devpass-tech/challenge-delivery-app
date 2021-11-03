@@ -7,22 +7,43 @@
 
 import Foundation
 
-typealias NetworkResult<T: Decodable> = ((Result<T, APIError>) -> Void)
+typealias NetworkResult<T: Decodable> = ((Result<T, Error>) -> Void)
 
 protocol NetworkManagerProtocol {
     
-    static func request<T: Decodable>(url: String, completion: @escaping NetworkResult<T>)
+    func request<T: Decodable>(_ request: NetworkRequest, completion: @escaping NetworkResult<T>)
 }
 
-class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerProtocol {
     
-    static func request<T>(url: String, completion: @escaping NetworkResult<T>) {
-        guard let url = URL(string: url) else { return }
+    private let urlSession: URLSessionProtocol
+    
+    init(urlSession: URLSessionProtocol = URLSession.shared) {
+        self.urlSession = urlSession
+    }
+    
+    func request<T>(_ request: NetworkRequest, completion: @escaping NetworkResult<T>) {
+        guard let url = URL(string: request.baseURL + request.pathURL) else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
         
-        let dataTaks = URLSession.shared.dataTask(with: url) { data, _, _ in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = request.method.rawValue
+        
+        let dataTask = urlSession.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(APIError.networkError))
+                return
+            }
             
             guard let data = data else {
-                completion(.failure(.databaseError))
+                completion(.failure(APIError.databaseError))
                 return
             }
             
@@ -32,10 +53,10 @@ class NetworkManager: NetworkManagerProtocol {
                 completion(.success(result))
                 
             } catch {
-                completion(.failure(.decodeError))
+                completion(.failure(APIError.decodeError))
             }
         }
         
-        dataTaks.resume()
+        dataTask.resume()
     }
 }
