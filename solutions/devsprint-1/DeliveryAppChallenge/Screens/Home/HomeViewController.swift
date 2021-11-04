@@ -9,8 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    lazy var tableView: UITableView = {
-
+    public lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RestaurantCellIdentifier")
@@ -20,15 +19,20 @@ class HomeViewController: UIViewController {
 
     let deliveryApi = DeliveryApi()
     var restaurants: [String] = []
+    
+    private lazy var dividerView: DividerView = {
+        let dividerView = DividerView.init()
+        return dividerView
+    }()
 
     init() {
         super.init(nibName: nil, bundle: nil)
 
         view.backgroundColor = .white
         title = "Delivery App"
-
-        addSubviews()
-        configureConstraints()
+        
+        setup()
+        
     }
 
     required init?(coder: NSCoder) {
@@ -36,7 +40,6 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
         fetchRestaurants()
     }
 
@@ -54,22 +57,26 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController {
-
-    func addSubviews() {
-
+extension HomeViewController: ViewCode {
+    
+    func setupComponents() {
         view.addSubview(tableView)
+        super.view.addSubview(dividerView)
     }
-
-    func configureConstraints() {
-
+    
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    func setupExtraConfiguration() {
+        
+    }
+    
 }
 
 extension HomeViewController: UITableViewDataSource {
