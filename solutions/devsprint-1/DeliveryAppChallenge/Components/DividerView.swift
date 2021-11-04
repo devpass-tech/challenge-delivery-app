@@ -10,7 +10,7 @@ import UIKit
 
 public class DividerView: UIView {
     
-    public lazy var dividerView: UIView = {
+     lazy var dividerView: UIView = {
         let dividerView = UIView()
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         return dividerView
@@ -35,8 +35,7 @@ extension DividerView: ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
               dividerView.heightAnchor.constraint(equalToConstant: 1),
-              dividerView.widthAnchor.constraint(equalToConstant: 500),
-              dividerView.topAnchor.constraint(equalTo: topAnchor, constant: 95)
+          
             ])
     }
     

@@ -20,6 +20,7 @@
 		98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */; };
 		98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 		C044D1C2273363E600EFC37B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044D1C1273363E600EFC37B /* DividerView.swift */; };
+		C044D1C4273381BE00EFC37B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044D1C3273381BE00EFC37B /* ViewController.swift */; };
 		F57124682731C4EA00B48379 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57124672731C4EA00B48379 /* ViewCode.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		98EA0565272A0A0F007B0228 /* DeliveryApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApi.swift; sourceTree = "<group>"; };
 		C044D1C1273363E600EFC37B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		C044D1C3273381BE00EFC37B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F57124672731C4EA00B48379 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				983271C0272752AF0010C63A /* HomeViewController.swift */,
+				C044D1C3273381BE00EFC37B /* ViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C044D1C4273381BE00EFC37B /* ViewController.swift in Sources */,
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				C044D1C2273363E600EFC37B /* DividerView.swift in Sources */,
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
