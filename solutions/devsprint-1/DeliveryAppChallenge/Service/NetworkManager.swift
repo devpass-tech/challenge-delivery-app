@@ -31,7 +31,7 @@ final class NetworkManager: NetworkManagerProtocol {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
-        let dataTask = urlSession.dataTask(with: urlRequest) { data, response, error in
+        urlSession.loadData(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -56,7 +56,5 @@ final class NetworkManager: NetworkManagerProtocol {
                 completion(.failure(APIError.decodeError))
             }
         }
-        
-        dataTask.resume()
     }
 }

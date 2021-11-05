@@ -12,6 +12,7 @@
 		7415B44727332AF600CE8273 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B44627332AF600CE8273 /* NetworkRequest.swift */; };
 		7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B448273334B200CE8273 /* NetworkManagerTests.swift */; };
 		7415B44B273337B100CE8273 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B44A273337B100CE8273 /* URLSessionProtocol.swift */; };
+		744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */; };
 		983271BD272752AF0010C63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BE272752AF0010C63A /* SceneDelegate.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		7415B44627332AF600CE8273 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		7415B448273334B200CE8273 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		7415B44A273337B100CE8273 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolStub.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */,
 				7415B448273334B200CE8273 /* NetworkManagerTests.swift */,
+				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */,
+				744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

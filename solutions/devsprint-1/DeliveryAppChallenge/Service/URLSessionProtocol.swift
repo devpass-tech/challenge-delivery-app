@@ -9,9 +9,14 @@ import Foundation
 
 protocol URLSessionProtocol {
     
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+    func loadData(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
 extension URLSession: URLSessionProtocol {
     
+    func loadData(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let dataTask = dataTask(with: request, completionHandler: completionHandler)
+        
+        dataTask.resume()
+    }
 }

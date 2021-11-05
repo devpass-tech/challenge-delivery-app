@@ -11,6 +11,17 @@ import XCTest
 
 class NetworkManagerTests: XCTestCase {
     
+    private let urlSessionProtocolStub = URLSessionProtocolStub()
     
+    private lazy var networkManager = NetworkManager(urlSession: urlSessionProtocolStub)
     
+    func testRequest() {
+        let data = Data(base64Encoded: "Isso é um teste")
+        urlSessionProtocolStub.completionHandlerToBeReturned = data
+        let urlRequest = URLRequest(url: .init(fileURLWithPath: "URL"))
+        
+//        networkManager.request(urlRequest) { <#Result<Decodable, Error>#> in
+//            <#code#>
+//        }
+    }
 }
