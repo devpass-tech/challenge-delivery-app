@@ -9,13 +9,13 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
-    private let deliveryApi = DeliveryApi()
+    private let deliveryApi: DeliveryApiProtocol
     private let customView: HomeViewProtocol
     
-    init(customView: HomeViewProtocol) {
+    init(customView: HomeViewProtocol, deliveryApi: DeliveryApiProtocol) {
         self.customView = customView
+        self.deliveryApi = deliveryApi
         super.init(nibName: nil, bundle: nil)
-        self.customView.delegate = self
     }
     
     required init?(coder: NSCoder) {
