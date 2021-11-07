@@ -32,7 +32,15 @@ class RestaurantCell: UITableViewCell{
     let restaurantNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let restaurantTypeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,6 +54,9 @@ extension RestaurantCell: ViewCode{
         
         contentView.addSubview(restaurantLogo)
         contentView.addSubview(restaurantNameLabel)
+        contentView.addSubview(restaurantTypeLabel)
+        
+        
     }
     
     func setupConstraints() {
@@ -57,10 +68,13 @@ extension RestaurantCell: ViewCode{
             restaurantLogo.widthAnchor.constraint(equalToConstant: 45),
             restaurantLogo.heightAnchor.constraint(equalToConstant: 45),
             
-            restaurantNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            restaurantNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             restaurantNameLabel.leadingAnchor.constraint(equalTo: restaurantLogo.trailingAnchor, constant: 10),
             restaurantNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-
+            
+            restaurantTypeLabel.topAnchor.constraint(equalTo: restaurantNameLabel.bottomAnchor),
+            restaurantTypeLabel.leadingAnchor.constraint(equalTo: restaurantNameLabel.leadingAnchor),
+            
             
         ])
     }
