@@ -57,7 +57,9 @@ extension RestaurantCell: ViewCode{
             restaurantLogo.widthAnchor.constraint(equalToConstant: 45),
             restaurantLogo.heightAnchor.constraint(equalToConstant: 45),
             
-
+            restaurantNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            restaurantNameLabel.leadingAnchor.constraint(equalTo: restaurantLogo.trailingAnchor, constant: 10),
+            restaurantNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
             
         ])
