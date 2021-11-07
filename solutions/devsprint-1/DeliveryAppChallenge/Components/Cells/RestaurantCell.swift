@@ -8,6 +8,7 @@
 import UIKit
 
 class RestaurantCell: UITableViewCell {
+    static let identifier = "RestaurantCell"
     
     
 }
@@ -21,7 +22,7 @@ extension RestaurantCell: ViewCode{
     }
     
     func setupConstraints() {
-        <#code#>
+        
     }
     
 }
