@@ -49,13 +49,18 @@ class RestaurantCell: UITableViewCell{
 
 extension RestaurantCell: ViewCode{
     
-    func setupComponents() {
+    func setupExtraConfiguration() {
         self.accessoryType = .disclosureIndicator
-        
+
+    }
+    
+    func setupComponents() {
         contentView.addSubview(restaurantLogo)
         contentView.addSubview(restaurantNameLabel)
         contentView.addSubview(restaurantTypeLabel)
         
+        restaurantNameLabel.text = "Benjamin a Padaria"
+        restaurantTypeLabel.text = "Padaria · 23-33 min"
         
     }
     
@@ -68,7 +73,7 @@ extension RestaurantCell: ViewCode{
             restaurantLogo.widthAnchor.constraint(equalToConstant: 45),
             restaurantLogo.heightAnchor.constraint(equalToConstant: 45),
             
-            restaurantNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            restaurantNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             restaurantNameLabel.leadingAnchor.constraint(equalTo: restaurantLogo.trailingAnchor, constant: 10),
             restaurantNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             
@@ -78,5 +83,7 @@ extension RestaurantCell: ViewCode{
             
         ])
     }
+    
+    
     
 }
