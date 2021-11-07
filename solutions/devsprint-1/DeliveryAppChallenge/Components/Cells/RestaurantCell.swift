@@ -59,9 +59,6 @@ extension RestaurantCell: ViewCode{
         contentView.addSubview(restaurantNameLabel)
         contentView.addSubview(restaurantTypeLabel)
         
-        restaurantNameLabel.text = "Benjamin a Padaria"
-        restaurantTypeLabel.text = "Padaria · 23-33 min"
-        
     }
     
     func setupConstraints() {
