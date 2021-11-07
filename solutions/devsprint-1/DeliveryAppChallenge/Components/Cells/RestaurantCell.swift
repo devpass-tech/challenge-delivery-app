@@ -42,7 +42,14 @@ extension RestaurantCell: ViewCode{
     }
     
     func setupConstraints() {
-        
+        NSLayoutConstraint.activate([
+            restaurantLogo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+            restaurantLogo.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            restaurantLogo.widthAnchor.constraint(equalToConstant: 60),
+            restaurantLogo.heightAnchor.constraint(equalToConstant: 60),
+            
+            
+        ])
     }
     
 }
