@@ -11,7 +11,7 @@ class RestaurantCell: UITableViewCell{
     static let identifier = "RestaurantCellIdentifier"
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         setup()
     }
     
@@ -24,12 +24,18 @@ class RestaurantCell: UITableViewCell{
         logoImageView.image = #imageLiteral(resourceName: "restaurant-logo")
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.contentMode = .scaleAspectFill
-        logoImageView.layer.cornerRadius = 30
+        logoImageView.layer.cornerRadius = 23
         logoImageView.clipsToBounds = true
         return logoImageView
     }()
     
-
+    let restaurantNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
 }
 
@@ -39,15 +45,20 @@ extension RestaurantCell: ViewCode{
         self.accessoryType = .disclosureIndicator
         
         contentView.addSubview(restaurantLogo)
+        contentView.addSubview(restaurantNameLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            restaurantLogo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            restaurantLogo.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            restaurantLogo.widthAnchor.constraint(equalToConstant: 60),
-            restaurantLogo.heightAnchor.constraint(equalToConstant: 60),
+            contentView.heightAnchor.constraint(equalToConstant: 60),
             
+            restaurantLogo.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            restaurantLogo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            restaurantLogo.widthAnchor.constraint(equalToConstant: 45),
+            restaurantLogo.heightAnchor.constraint(equalToConstant: 45),
+            
+
+
             
         ])
     }

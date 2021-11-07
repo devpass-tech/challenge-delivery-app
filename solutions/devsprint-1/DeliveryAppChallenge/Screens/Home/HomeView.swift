@@ -30,6 +30,7 @@ final class HomeView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(RestaurantCell.self, forCellReuseIdentifier: "RestaurantCellIdentifier")
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         return tableView
     }()
     
