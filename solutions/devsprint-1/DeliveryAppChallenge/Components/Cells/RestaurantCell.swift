@@ -7,18 +7,38 @@
 
 import UIKit
 
-class RestaurantCell: UITableViewCell {
-    static let identifier = "RestaurantCell"
+class RestaurantCell: UITableViewCell{
+    static let identifier = "RestaurantCellIdentifier"
+        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let restaurantLogo: UIImageView = {
+        let logoImageView = UIImageView()
+        logoImageView.image = #imageLiteral(resourceName: "restaurant-logo")
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.contentMode = .scaleAspectFill
+        logoImageView.layer.cornerRadius = 30
+        logoImageView.clipsToBounds = true
+        return logoImageView
+    }()
+    
+
     
 }
 
 extension RestaurantCell: ViewCode{
     
     func setupComponents() {
-        //image view restaurant logo
-        // uitext restaurant name
-        // cell has subtitles and chevron to go to the restaurant detail
+        self.accessoryType = .disclosureIndicator
+        
+        contentView.addSubview(restaurantLogo)
     }
     
     func setupConstraints() {
