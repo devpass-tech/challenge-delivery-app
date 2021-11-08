@@ -13,12 +13,12 @@
 		7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B448273334B200CE8273 /* NetworkManagerTests.swift */; };
 		7415B44B273337B100CE8273 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B44A273337B100CE8273 /* URLSessionProtocol.swift */; };
 		744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */; };
+		74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */; };
 		983271BD272752AF0010C63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BE272752AF0010C63A /* SceneDelegate.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
-		983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */; };
 		983271DE272752B50010C63A /* DeliveryAppChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DD272752B50010C63A /* DeliveryAppChallengeUITests.swift */; };
 		983271E0272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DF272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift */; };
 		98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
@@ -51,6 +51,7 @@
 		7415B448273334B200CE8273 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		7415B44A273337B100CE8273 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolStub.swift; sourceTree = "<group>"; };
+		74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMocks.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		983271C8272752B50010C63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		983271CA272752B50010C63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		983271CF272752B50010C63A /* DeliveryAppChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryAppChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppChallengeTests.swift; sourceTree = "<group>"; };
 		983271D9272752B50010C63A /* DeliveryAppChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryAppChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271DD272752B50010C63A /* DeliveryAppChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppChallengeUITests.swift; sourceTree = "<group>"; };
 		983271DF272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -94,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74E4A5B0273999DC007FA4DB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
+				74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		983271B0272752AF0010C63A = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +130,6 @@
 				983271ED272752D20010C63A /* AppDelegate */,
 				983271EE272752EE0010C63A /* Screens */,
 				983271EF272752F60010C63A /* Service */,
-				983271F0272753000010C63A /* Models */,
 			);
 			path = DeliveryAppChallenge;
 			sourceTree = "<group>";
@@ -129,9 +137,8 @@
 		983271D2272752B50010C63A /* DeliveryAppChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */,
+				74E4A5B0273999DC007FA4DB /* Mocks */,
 				7415B448273334B200CE8273 /* NetworkManagerTests.swift */,
-				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";
@@ -178,20 +185,13 @@
 		983271EF272752F60010C63A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 				740F37592731EC4800F8D89F /* APIError.swift */,
+				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 				740F37572731EC2E00F8D89F /* NetworkManager.swift */,
 				7415B44627332AF600CE8273 /* NetworkRequest.swift */,
 				7415B44A273337B100CE8273 /* URLSessionProtocol.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		983271F0272753000010C63A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		983271F2272753100010C63A /* Home */ = {
@@ -376,7 +376,7 @@
 			files = (
 				7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */,
 				744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */,
-				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
+				74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

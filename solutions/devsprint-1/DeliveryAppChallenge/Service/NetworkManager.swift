@@ -38,12 +38,12 @@ final class NetworkManager: NetworkManagerProtocol {
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(APIError.networkError))
+                completion(.failure(APIError.invalidStatusCode))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(APIError.databaseError))
+                completion(.failure(APIError.noData))
                 return
             }
             

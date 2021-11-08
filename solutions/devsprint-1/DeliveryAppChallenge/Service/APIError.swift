@@ -8,24 +8,24 @@
 import Foundation
 
 enum APIError: Error {
-    case networkError
     case decodeError
-    case databaseError
+    case noData
     case invalidURL
+    case invalidStatusCode
 }
 
 extension APIError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
-        case .networkError:
-            return "Ocorreu um erro ao conectar aos servidores"
         case .decodeError:
             return "Ocorreu um erro com decode dos dados"
-        case .databaseError:
-            return "Ocorreu um erro com o banco de dados"
+        case .noData:
+            return "Ocorreu um erro com os dados"
         case .invalidURL:
             return "Ocorreu um erro com a url"
+        case .invalidStatusCode:
+            return "Ocorreu um erro com o status code"
         }
     }
 }

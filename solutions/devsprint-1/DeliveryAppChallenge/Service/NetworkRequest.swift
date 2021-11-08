@@ -26,16 +26,3 @@ extension NetworkRequest {
         "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/"
     }
 }
-
-struct RestauntListRquest: NetworkRequest {
-    
-    var pathURL: String = "home_restaurant_list.json"
-    
-    var method: HTTPMethod = .get
-}
-
-// https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json
-
-// https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/restaurant_details.json
-
-// https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/address_search_results.json
