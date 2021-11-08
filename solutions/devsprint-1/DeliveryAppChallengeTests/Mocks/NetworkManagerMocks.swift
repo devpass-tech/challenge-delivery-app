@@ -9,6 +9,9 @@ import Foundation
 @testable import DeliveryAppChallenge
 
 enum NetworkManagerMocks {
+    
+    // MARK: - Public Properties
+    
     struct NetworkRequestFake: NetworkRequest {
         let baseURL: String
         let pathURL: String
@@ -32,6 +35,14 @@ enum NetworkManagerMocks {
             headerFields: nil
         )
     }()
+    
+    static var invaliDdata: Data? {
+        """
+        {
+            "devPass": 0
+        }
+        """.data(using: .utf8)
+    }
 
     static var data: Data? {
         """
@@ -44,4 +55,6 @@ enum NetworkManagerMocks {
     struct DecodableFake: Decodable {
         let devPass: String
     }
+    
+    struct ErrorDummy: Error, Equatable { }
 }

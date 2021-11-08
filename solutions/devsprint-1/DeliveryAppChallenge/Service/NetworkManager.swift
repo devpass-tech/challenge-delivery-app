@@ -16,11 +16,17 @@ protocol NetworkManagerProtocol {
 
 final class NetworkManager: NetworkManagerProtocol {
     
+    // MARK: - Private Properties
+    
     private let urlSession: URLSessionProtocol
+    
+    // MARK: - Init
     
     init(urlSession: URLSessionProtocol = URLSession.shared) {
         self.urlSession = urlSession
     }
+    
+    // MARK: - Public Functions
     
     func request<T>(_ request: NetworkRequest, completion: @escaping NetworkResult<T>) {
         guard let url = URL(string: request.baseURL + request.pathURL) else {
