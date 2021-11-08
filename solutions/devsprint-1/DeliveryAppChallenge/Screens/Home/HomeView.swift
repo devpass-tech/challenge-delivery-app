@@ -19,7 +19,7 @@ protocol HomeViewProtocol: UIView {
 final class HomeView: UIView {
     
     struct ViewModel {
-        let restaurants: [String]
+        let restaurants: [Restaurant]
     }
     
     private var viewModel: ViewModel
@@ -78,7 +78,7 @@ extension HomeView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCellIdentifier", for: indexPath)
         
-        cell.textLabel?.text = viewModel.restaurants[indexPath.row]
+        cell.textLabel?.text = viewModel.restaurants[indexPath.row].name
         return cell
     }
 }
