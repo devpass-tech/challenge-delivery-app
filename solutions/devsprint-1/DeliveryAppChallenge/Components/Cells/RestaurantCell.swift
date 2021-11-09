@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RestaurantCell: UITableViewCell{
+final class RestaurantCell: UITableViewCell{
     static let identifier = "RestaurantCellIdentifier"
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -24,12 +24,12 @@ class RestaurantCell: UITableViewCell{
         logoImageView.image = #imageLiteral(resourceName: "restaurant-logo")
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.contentMode = .scaleAspectFill
-        logoImageView.layer.cornerRadius = 23
         logoImageView.clipsToBounds = true
+        logoImageView.layer.masksToBounds = true
         return logoImageView
     }()
     
-    let restaurantNameLabel: UILabel = {
+    private let restaurantNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .label
@@ -37,7 +37,7 @@ class RestaurantCell: UITableViewCell{
         return label
     }()
     
-    let restaurantTypeLabel: UILabel = {
+    private let restaurantTypeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .secondaryLabel
@@ -49,16 +49,10 @@ class RestaurantCell: UITableViewCell{
 
 extension RestaurantCell: ViewCode{
     
-    func setupExtraConfiguration() {
-        self.accessoryType = .disclosureIndicator
-
-    }
-    
     func setupComponents() {
         contentView.addSubview(restaurantLogo)
         contentView.addSubview(restaurantNameLabel)
         contentView.addSubview(restaurantTypeLabel)
-        
     }
     
     func setupConstraints() {
@@ -76,11 +70,11 @@ extension RestaurantCell: ViewCode{
             
             restaurantTypeLabel.topAnchor.constraint(equalTo: restaurantNameLabel.bottomAnchor),
             restaurantTypeLabel.leadingAnchor.constraint(equalTo: restaurantNameLabel.leadingAnchor),
-            
-            
         ])
     }
     
-    
-    
+    func setupExtraConfiguration() {
+        restaurantLogo.layer.cornerRadius = self.frame.height / 2
+        self.accessoryType = .disclosureIndicator
+    }
 }
