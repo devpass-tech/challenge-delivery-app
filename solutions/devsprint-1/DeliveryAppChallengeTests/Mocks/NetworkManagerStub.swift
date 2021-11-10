@@ -25,11 +25,6 @@ final class NetworkManagerProtocolStub: NetworkManagerProtocol {
     func request<T>(_ request: NetworkRequest, completion: @escaping NetworkResult<T>) where T : Decodable {
         requestCalled = true
         requestPassed = request
-//        guard let requestToBeReturned = requestToBeReturned, let requestMock = requestToBeReturned as? Result<T,Error> else {
-//            return
-//        }
-//
-//        completion(requestMock)
         
         if let requestToBeReturned = requestToBeReturned,
             let foo = requestToBeReturned as? Result<T, Error> {
