@@ -34,6 +34,8 @@
 		F5912B18273C11AA00A71644 /* RestaurantListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B17273C11AA00A71644 /* RestaurantListResponse.swift */; };
 		F5912B1A273C154C00A71644 /* RestaurantListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B19273C154B00A71644 /* RestaurantListRequest.swift */; };
 		F5912B1C273C2B8500A71644 /* RestaurantListAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1B273C2B8500A71644 /* RestaurantListAPIDataSource.swift */; };
+		F5912B1E273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1D273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift */; };
+		F5912B20273C3F9500A71644 /* NetworkManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		F5912B17273C11AA00A71644 /* RestaurantListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListResponse.swift; sourceTree = "<group>"; };
 		F5912B19273C154B00A71644 /* RestaurantListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListRequest.swift; sourceTree = "<group>"; };
 		F5912B1B273C2B8500A71644 /* RestaurantListAPIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListAPIDataSource.swift; sourceTree = "<group>"; };
+		F5912B1D273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListAPIDataSourceTests.swift; sourceTree = "<group>"; };
+		F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 			children = (
 				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
 				74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */,
+				F5912B1D273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift */,
+				F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -428,7 +434,9 @@
 			files = (
 				7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */,
 				744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */,
+				F5912B1E273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift in Sources */,
 				74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */,
+				F5912B20273C3F9500A71644 /* NetworkManagerStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

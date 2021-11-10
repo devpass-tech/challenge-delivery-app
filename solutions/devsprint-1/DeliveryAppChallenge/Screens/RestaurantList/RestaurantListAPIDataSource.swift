@@ -18,7 +18,7 @@ final class RestaurantListAPIDataSource {
     
     private let networkManager: NetworkManagerProtocol
     
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
     }
     
