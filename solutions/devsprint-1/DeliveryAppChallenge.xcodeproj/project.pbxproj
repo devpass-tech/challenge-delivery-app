@@ -127,10 +127,9 @@
 		74E4A5B0273999DC007FA4DB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
 				74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */,
-				F5912B1D273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift */,
 				F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */,
+				744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -172,6 +171,7 @@
 			children = (
 				74E4A5B0273999DC007FA4DB /* Mocks */,
 				7415B448273334B200CE8273 /* NetworkManagerTests.swift */,
+				F5912B1D273C3E5B00A71644 /* RestaurantListAPIDataSourceTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";

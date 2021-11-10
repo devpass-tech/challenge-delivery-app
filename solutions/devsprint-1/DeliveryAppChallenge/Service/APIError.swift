@@ -12,6 +12,7 @@ enum APIError: Error {
     case noData
     case invalidURL
     case invalidStatusCode
+    case networkError
 }
 
 extension APIError: LocalizedError {
@@ -26,6 +27,8 @@ extension APIError: LocalizedError {
             return "Ocorreu um erro com a url"
         case .invalidStatusCode:
             return "Ocorreu um erro com o status code"
+        case .networkError:
+            return "Ocorreu um erro,verifique sua conexão"
         }
     }
 }
