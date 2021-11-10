@@ -114,6 +114,8 @@
 				74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
 		221F089E27346A93007D2758 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
