@@ -9,8 +9,12 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
     private let deliveryApi: DeliveryApiProtocol
     private let customView: HomeViewProtocol
+    
+    // MARK: - Inits
     
     init(customView: HomeViewProtocol, deliveryApi: DeliveryApiProtocol) {
         self.customView = customView
@@ -22,13 +26,16 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Lifecycle
+    
     override func loadView() {
         view = customView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Delivery App"
+        navigationItem.title = "Delivery App"
+        setupSearchBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,8 +52,33 @@ final class HomeViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Private Functions
+    
+    private func setupSearchBar() {
+        let searchController = UISearchController()
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Nome do restaurante"
+        searchController.obscuresBackgroundDuringPresentation = false
+    }
 }
+
+// MARK: - HomeViewDelegate Extension
 
 extension HomeViewController: HomeViewDelegate {
     
+}
+
+// MARK: - UISearchBarDelegate Extension
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
 }
