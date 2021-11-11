@@ -9,12 +9,12 @@ import Foundation
 import XCTest
 @testable import DeliveryAppChallenge
 
-class RestaurantListAPIDataSourceTests: XCTestCase {
+class RestaurantListDataSourceTests: XCTestCase {
     
     private let networkManagerStub = NetworkManagerProtocolStub()
     
     /// sut (subject under test pattern)
-    private lazy var sut = RestaurantListAPIDataSource(networkManager: networkManagerStub)
+    private lazy var sut = RestaurantListDataSource(networkManager: networkManagerStub)
     
     func test_fetchRestaurantList_givenSuccessResponse_shouldSucceed() throws {
         //Given
