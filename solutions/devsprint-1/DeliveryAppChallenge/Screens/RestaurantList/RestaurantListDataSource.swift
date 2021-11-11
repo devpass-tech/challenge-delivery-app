@@ -9,7 +9,7 @@ import Foundation
 
 typealias RestaurantListResult = (Result<[RestaurantListResponse], Error>) -> Void
 
-protocol RestaurantListAPIDataSourceProtocol {
+protocol RestaurantListDataSourceProtocol {
     
     func fetchRestaurantList(completion: @escaping RestaurantListResult)
 }
