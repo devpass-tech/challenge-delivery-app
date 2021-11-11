@@ -7,6 +7,17 @@
 
 import UIKit
 
+extension RestaurantCell{
+    
+    struct ViewModel {
+        let name: String
+        let type: String
+        let deliveryTimeMin: String
+        let deliveryTimeMax: String
+        
+    }
+}
+
 final class RestaurantCell: UITableViewCell{
     static let identifier = "RestaurantCellIdentifier"
         
@@ -17,6 +28,12 @@ final class RestaurantCell: UITableViewCell{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup() {
+        //nome
+        //tipo
+        //tempo de entrega min e max
     }
     
     private let restaurantLogo: UIImageView = {
