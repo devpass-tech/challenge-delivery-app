@@ -14,7 +14,7 @@ protocol RestaurantListDataSourceProtocol {
     func fetchRestaurantList(completion: @escaping RestaurantListResult)
 }
 
-final class RestaurantListDataSource {
+final class RestaurantListDataSource: RestaurantListDataSourceProtocol {
     
     private let networkManager: NetworkManagerProtocol
     
