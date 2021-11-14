@@ -13,8 +13,8 @@ final class HomeFactory: FeatureFactory {
     
     static func make(with dependecies: Dependencies) -> UIViewController {
         let customView = HomeView()
-        let deliveryApi = DeliveryApi()
-        let viewController = HomeViewController(customView: customView, deliveryApi: deliveryApi)
+        let restaurantListDataSource = RestaurantListDataSource()
+        let viewController = HomeViewController(customView: customView, restaurantListDataSource: restaurantListDataSource)
         customView.delegate = viewController
         return viewController
     }

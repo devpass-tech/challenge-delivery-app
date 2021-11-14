@@ -9,12 +9,12 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
-    private let deliveryApi: DeliveryApiProtocol
+    private let restaurantListDataSource: RestaurantListDataSourceProtocol
     private let customView: HomeViewProtocol
     
-    init(customView: HomeViewProtocol, deliveryApi: DeliveryApiProtocol) {
+    init(customView: HomeViewProtocol, restaurantListDataSource: RestaurantListDataSourceProtocol) {
         self.customView = customView
-        self.deliveryApi = deliveryApi
+        self.restaurantListDataSource = restaurantListDataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,11 +37,16 @@ final class HomeViewController: UIViewController {
     
     func fetchRestaurants() {
         
-        deliveryApi.fetchRestaurants { [weak self] restaurants in
-            //        self.restaurants = restaurants
+        restaurantListDataSource.fetchRestaurantList { [weak self] result in
+            guard let self = self else {return}
             DispatchQueue.main.async {
-                guard let self = self else {return}
-                self.customView.displayRestaurants(.init(restaurants: restaurants))
+                switch result {
+                case .success(let restaurants):
+                    self.customView.displayRestaurants(.init(restaurants: restaurants))
+                case .failure:
+                    print("Tratar erro na view")
+                }
+                
             }
         }
     }
