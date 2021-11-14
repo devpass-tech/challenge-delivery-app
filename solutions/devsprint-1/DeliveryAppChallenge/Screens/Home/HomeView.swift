@@ -19,7 +19,7 @@ protocol HomeViewProtocol: UIView {
 final class HomeView: UIView {
     
     struct ViewModel {
-        let restaurants: [String]
+        let restaurants: [RestaurantListResponse]
     }
     
     private var viewModel: ViewModel
@@ -78,6 +78,9 @@ extension HomeView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCellIdentifier", for: indexPath) as! RestaurantCell
+        let restaurant = viewModel.restaurants[indexPath.row]
+            cell.setup(with: .init(name: restaurant.name, type: restaurant.category, deliveryTimeMin: restaurant.deliveryTime.min, deliveryTimeMax: restaurant.deliveryTime.max))
+        
         return cell
     }
 }
