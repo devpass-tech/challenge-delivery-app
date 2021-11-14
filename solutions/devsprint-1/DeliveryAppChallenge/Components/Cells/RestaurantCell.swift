@@ -12,8 +12,8 @@ extension RestaurantCell{
     struct ViewModel {
         let name: String
         let type: String
-        let deliveryTimeMin: String
-        let deliveryTimeMax: String
+        let deliveryTimeMin: Int
+        let deliveryTimeMax: Int
         
     }
 }
@@ -30,10 +30,12 @@ final class RestaurantCell: UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
-        //nome
-        //tipo
-        //tempo de entrega min e max
+    func setup(with viewModel: ViewModel) {
+        restaurantNameLabel.text = viewModel.name
+        let minTimeString = String(viewModel.deliveryTimeMin)
+        let maxTimeString = String(viewModel.deliveryTimeMax)
+
+        restaurantTypeLabel.text = "\(viewModel.type) · \(minTimeString) - \(maxTimeString) min"
     }
     
     private let restaurantLogo: UIImageView = {
