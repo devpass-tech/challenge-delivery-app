@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     
     private let deliveryApi: DeliveryApiProtocol
     private let customView: HomeViewProtocol
+    private let searchController = UISearchController()
     
     // MARK: - Inits
     
@@ -56,7 +57,6 @@ final class HomeViewController: UIViewController {
     // MARK: - Private Functions
     
     private func setupSearchBar() {
-        let searchController = UISearchController()
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Nome do restaurante"
