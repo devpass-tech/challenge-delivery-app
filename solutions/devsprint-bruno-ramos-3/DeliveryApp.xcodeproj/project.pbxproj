@@ -11,6 +11,7 @@
 		7069848B27BB26C000428AF3 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848A27BB26C000428AF3 /* SampleView.swift */; };
 		7069848D27BB26C900428AF3 /* SampleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848C27BB26C900428AF3 /* SampleConfigurator.swift */; };
 		7069848F27BB26CF00428AF3 /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848E27BB26CF00428AF3 /* SampleService.swift */; };
+		79111D6427BC253D0035926B /* AdressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79111D6327BC253D0035926B /* AdressCellView.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
 		983271D4272752B50010C63A /* DeliveryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271D3272752B50010C63A /* DeliveryAppTests.swift */; };
@@ -50,6 +51,7 @@
 		7069848A27BB26C000428AF3 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		7069848C27BB26C900428AF3 /* SampleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConfigurator.swift; sourceTree = "<group>"; };
 		7069848E27BB26CF00428AF3 /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
+		79111D6327BC253D0035926B /* AdressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressCellView.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				98EA055A272A092F007B0228 /* AddressSearchViewController.swift */,
 				98C4368427ADAE4A00D9048A /* AddressListView.swift */,
+				79111D6327BC253D0035926B /* AdressCellView.swift */,
 			);
 			path = AddressSearch;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				98AF573627ADB34C00339A66 /* DebugViewController.swift in Sources */,
 				98AF572327ADB16E00339A66 /* SceneDelegate.swift in Sources */,
 				98AF572427ADB16E00339A66 /* SampleComponentView.swift in Sources */,
+				79111D6427BC253D0035926B /* AdressCellView.swift in Sources */,
 				98AF572527ADB16E00339A66 /* HomeViewController.swift in Sources */,
 				98AF572627ADB16E00339A66 /* HomeView.swift in Sources */,
 				98AF572727ADB16E00339A66 /* AddressSearchViewController.swift in Sources */,
