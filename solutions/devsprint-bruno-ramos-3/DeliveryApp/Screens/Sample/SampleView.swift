@@ -7,24 +7,6 @@
 
 import UIKit
 
-protocol ViewCode {
-    func setupComponents()
-    func setupConstraints()
-    func setupExtraConfiguration()
-    func setup()
-}
-
-extension ViewCode {
-    func setup() {
-        setupComponents()
-        setupConstraints()
-        setupExtraConfiguration()
-    }
-
-    func setupExtraConfiguration() {}
-}
-
-
 protocol SampleViewDelegate: AnyObject {
     func didTapOnSomeButton()
 }

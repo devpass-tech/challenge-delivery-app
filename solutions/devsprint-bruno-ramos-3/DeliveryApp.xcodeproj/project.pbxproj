@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B09552927BB36AA00B3ECDF /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09552827BB36AA00B3ECDF /* ViewCode.swift */; };
 		7069848927BB26B900428AF3 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848827BB26B900428AF3 /* SampleViewController.swift */; };
 		7069848B27BB26C000428AF3 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848A27BB26C000428AF3 /* SampleView.swift */; };
 		7069848D27BB26C900428AF3 /* SampleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848C27BB26C900428AF3 /* SampleConfigurator.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B09552827BB36AA00B3ECDF /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		7069848827BB26B900428AF3 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		7069848A27BB26C000428AF3 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		7069848C27BB26C900428AF3 /* SampleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConfigurator.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B09552727BB369300B3ECDF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5B09552827BB36AA00B3ECDF /* ViewCode.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		7069848727BB26A300428AF3 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		983271BB272752AF0010C63A /* DeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B09552727BB369300B3ECDF /* Protocols */,
 				983271EC272752C50010C63A /* Resources */,
 				983271ED272752D20010C63A /* AppDelegate */,
 				983271EE272752EE0010C63A /* Screens */,
@@ -397,6 +408,7 @@
 				98AF573127ADB16E00339A66 /* DeliveryApi.swift in Sources */,
 				98AF573227ADB16E00339A66 /* Restaurant.swift in Sources */,
 				98AF573327ADB16E00339A66 /* String+Extensions.swift in Sources */,
+				5B09552927BB36AA00B3ECDF /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
