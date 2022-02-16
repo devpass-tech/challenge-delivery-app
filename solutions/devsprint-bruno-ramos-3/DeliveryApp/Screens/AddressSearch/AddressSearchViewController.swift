@@ -8,6 +8,13 @@
 import UIKit
 
 class AddressSearchViewController: UIViewController {
+    
+    private let searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.placeholder = "Rua, número, bairro"
+        search.hidesNavigationBarDuringPresentation = false
+        return search
+    }()
 
     private let customView: AddressListViewProtocol
     
@@ -27,10 +34,18 @@ class AddressSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
-        navigationItem.title = "Search"
+        setupNavigationBar()
     }
+    
+    func setupNavigationBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Search"
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
 }
 
 
