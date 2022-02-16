@@ -1,5 +1,5 @@
 //
-//  AdressCellView.swift
+//  AddressCellView.swift
 //  DeliveryApp
 //
 //  Created by Pedro Henrique Léda on 15/02/22.
@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class AdressCellView: UITableViewCell {
+class AddressCellView: UITableViewCell {
     var stackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 5
+        stack.spacing = 8
         return stack
     }()
     
@@ -42,7 +42,10 @@ class AdressCellView: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension AddressCellView {
+
     func addSubviews() {
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
@@ -57,3 +60,4 @@ class AdressCellView: UITableViewCell {
         ])
     }
 }
+
