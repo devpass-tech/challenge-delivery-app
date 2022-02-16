@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class SampleConfigurator: FeatureFactory {
-    func make() -> UIViewController {
+enum SampleConfigurator {
+    static func make() -> UIViewController {
         let view = SampleView()
         let apiDataSource = DeliveryApi()
         let service = SampleService(apiDataSource: apiDataSource)
@@ -21,8 +21,4 @@ final class SampleConfigurator: FeatureFactory {
 
         return viewController
     }
-}
-
-protocol FeatureFactory {
-    func make() -> UIViewController
 }

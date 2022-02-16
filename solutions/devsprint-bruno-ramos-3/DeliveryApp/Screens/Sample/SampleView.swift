@@ -57,8 +57,14 @@ final class SampleView: UIView, SampleViewProtocol {
         return tableView
     }()
 
+    private let fooButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+
     init() {
         super.init(frame: .zero)
+        setup()
     }
 
     @available(*, unavailable)
@@ -72,6 +78,11 @@ final class SampleView: UIView, SampleViewProtocol {
 
     func display(viewModel: [ViewModel]) {
         self.viewModel = viewModel
+        tableView.reloadData()
+    }
+
+    @objc private func didTapOnButton() {
+        delegate?.didTapOnSomeButton()
     }
 }
 
