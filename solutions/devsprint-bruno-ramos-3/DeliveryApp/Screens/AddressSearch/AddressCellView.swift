@@ -4,12 +4,10 @@
 //
 //  Created by Pedro Henrique Léda on 15/02/22.
 //
-
-import Foundation
 import UIKit
 
 class AddressCellView: UITableViewCell {
-    var stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -17,7 +15,7 @@ class AddressCellView: UITableViewCell {
         return stack
     }()
     
-    lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
@@ -25,7 +23,7 @@ class AddressCellView: UITableViewCell {
         return label
     }()
     
-    lazy var subtitleLabel: UILabel = {
+    private let subtitleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
@@ -35,8 +33,7 @@ class AddressCellView: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubviews()
-        configureConstraints()
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -44,15 +41,14 @@ class AddressCellView: UITableViewCell {
     }
 }
 
-extension AddressCellView {
-
-    func addSubviews() {
+extension AddressCellView: ViewCode {
+    func setupComponents() {
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
     }
-
-    func configureConstraints() {
+    
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
