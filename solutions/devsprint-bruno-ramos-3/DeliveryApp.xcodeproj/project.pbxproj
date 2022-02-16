@@ -117,7 +117,6 @@
 				983271EF272752F60010C63A /* Service */,
 				983271F0272753000010C63A /* Models */,
 				983271F1272753060010C63A /* Extensions */,
-				6C2F74B527BD372400F7AE6D /* FeatureFactory.swift */,
 			);
 			path = DeliveryApp;
 			sourceTree = "<group>";
@@ -234,6 +233,7 @@
 		98F12963272F307100B88A87 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6C2F74B527BD372400F7AE6D /* FeatureFactory.swift */,
 				98C4368027ADADC000D9048A /* SampleComponentView.swift */,
 			);
 			path = Components;
