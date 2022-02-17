@@ -17,4 +17,9 @@ struct RestaurantResponse: Decodable {
         case name, category
         case deliveryTime = "delivery_time"
     }
+    
+    struct DeliveryTime: Decodable {
+        let min: Int
+        let max: Int
+    }
 }

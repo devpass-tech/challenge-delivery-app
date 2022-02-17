@@ -2,12 +2,17 @@
 //  DeliveryTime.swift
 //  DeliveryApp
 //
-//  Created by Amaryllis Baldrez on 15/02/22.
+//  Created by Amaryllis Baldrez on 17/02/22.
 //
 
 import Foundation
 
-struct DeliveryTime: Decodable {
+struct DeliveryTime {
     let min: Int
     let max: Int
+    
+    init(from response: DeliveryTime) {
+        self.min = response.min
+        self.max = response.max
+    }
 }
