@@ -30,8 +30,8 @@ final class AddressListView: UIView, AddressListViewProtocol {
         let name: String
     }
     
-    private let addressListCellIdentifier = "addressListCellIdentifier"
-    private var addressList : [ViewModel] = [] {
+    private let cellIdentifier = "addressListCellIdentifier"
+    private var viewModel : [ViewModel] = [] {
         didSet {
             reloadData()
         }
@@ -45,7 +45,7 @@ final class AddressListView: UIView, AddressListViewProtocol {
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.register(AddressCellView.self, forCellReuseIdentifier: addressListCellIdentifier)
+        tableView.register(AddressCellView.self, forCellReuseIdentifier: cellIdentifier)
         return tableView
     }()
     
@@ -54,7 +54,7 @@ final class AddressListView: UIView, AddressListViewProtocol {
     }
     
     func display(viewModel: [ViewModel]) {
-        self.addressList = viewModel
+        self.viewModel = viewModel
     }
     
     // MARK: Initilizer
@@ -93,12 +93,12 @@ extension AddressListView: ViewCode {
 extension AddressListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addressList.count
+        return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: addressListCellIdentifier, for: indexPath) as! AddressCellView
-        let model = addressList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AddressCellView
+        let model = viewModel[indexPath.row]
         cell.setProperties(model);
         return cell
     }

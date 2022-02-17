@@ -15,14 +15,14 @@ class AddressCellView: UITableViewCell {
         return stack
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
-    private lazy var subtitleLabel: UILabel = {
+    private let subtitleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
