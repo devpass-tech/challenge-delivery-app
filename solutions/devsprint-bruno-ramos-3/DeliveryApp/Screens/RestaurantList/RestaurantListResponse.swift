@@ -1,19 +1,19 @@
 //
 //  RestaurantListResponse.swift
-//  DeliveryAppChallenge
+//  DeliveryApp
 //
-//  Created by Bruna Fernanda Drago on 10/11/21.
+//  Created by Amaryllis Baldrez on 16/02/22.
 //
 
 import Foundation
 
-struct RestaurantListResponse: Decodable {
+struct RestaurantResponse: Decodable {
     
     let name: String
     let category: String
     let deliveryTime: DeliveryTime
     
-    private enum CodingKeys: String,CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name, category
         case deliveryTime = "delivery_time"
     }
@@ -23,5 +23,3 @@ struct RestaurantListResponse: Decodable {
         let max: Int
     }
 }
-
-
