@@ -89,6 +89,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70610D5F27BC728B001C83EF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				70610D6027BC7297001C83EF /* Sample */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		70610D6027BC7297001C83EF /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				70610D6327BC7322001C83EF /* Doubles */,
+				70610D6127BC72A2001C83EF /* SampleViewControllerTests.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		70610D6327BC7322001C83EF /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				70610D6427BC7344001C83EF /* SampleViewProtocolSpy.swift */,
+				70610D6627BC7479001C83EF /* SampleServiceProtocolSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		7069848727BB26A300428AF3 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				7069848827BB26B900428AF3 /* SampleViewController.swift */,
+				7069848A27BB26C000428AF3 /* SampleView.swift */,
+				7069848C27BB26C900428AF3 /* SampleConfigurator.swift */,
+				7069848E27BB26CF00428AF3 /* SampleService.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		983271B0272752AF0010C63A = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +161,7 @@
 		983271D2272752B50010C63A /* DeliveryAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				70610D5F27BC728B001C83EF /* Screens */,
 				983271D3272752B50010C63A /* DeliveryAppTests.swift */,
 			);
 			path = DeliveryAppTests;
@@ -151,6 +189,7 @@
 		983271EE272752EE0010C63A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7069848727BB26A300428AF3 /* Sample */,
 				98F12963272F307100B88A87 /* Components */,
 				983271F2272753100010C63A /* Home */,
 				98EA0559272A08D7007B0228 /* AddressSearch */,
@@ -208,6 +247,7 @@
 			children = (
 				98EA055A272A092F007B0228 /* AddressSearchViewController.swift */,
 				98C4368427ADAE4A00D9048A /* AddressListView.swift */,
+				79111D6327BC253D0035926B /* AddressCellView.swift */,
 			);
 			path = AddressSearch;
 			sourceTree = "<group>";
@@ -361,6 +401,7 @@
 				98AF573627ADB34C00339A66 /* DebugViewController.swift in Sources */,
 				98AF572327ADB16E00339A66 /* SceneDelegate.swift in Sources */,
 				98AF572427ADB16E00339A66 /* SampleComponentView.swift in Sources */,
+				79111D6427BC253D0035926B /* AddressCellView.swift in Sources */,
 				98AF572527ADB16E00339A66 /* HomeViewController.swift in Sources */,
 				98AF572627ADB16E00339A66 /* HomeView.swift in Sources */,
 				98AF572727ADB16E00339A66 /* AddressSearchViewController.swift in Sources */,
@@ -368,11 +409,15 @@
 				98AF572827ADB16E00339A66 /* AddressListView.swift in Sources */,
 				98AF572927ADB16E00339A66 /* RestaurantListViewController.swift in Sources */,
 				98AF572A27ADB16E00339A66 /* RestaurantListView.swift in Sources */,
+				7069848927BB26B900428AF3 /* SampleViewController.swift in Sources */,
 				98AF572B27ADB16E00339A66 /* RestaurantDetailsViewController.swift in Sources */,
 				98AF572C27ADB16E00339A66 /* RestaurantDetailsView.swift in Sources */,
+				7069848F27BB26CF00428AF3 /* SampleService.swift in Sources */,
 				98AF572D27ADB16E00339A66 /* MenuItemViewController.swift in Sources */,
+				7069848D27BB26C900428AF3 /* SampleConfigurator.swift in Sources */,
 				98AF572E27ADB16E00339A66 /* MenuItemView.swift in Sources */,
 				98AF572F27ADB16E00339A66 /* SettingsViewController.swift in Sources */,
+				7069848B27BB26C000428AF3 /* SampleView.swift in Sources */,
 				98AF573027ADB16E00339A66 /* SettingsView.swift in Sources */,
 				98AF573127ADB16E00339A66 /* DeliveryApi.swift in Sources */,
 				98AF573227ADB16E00339A66 /* Restaurant.swift in Sources */,
@@ -384,7 +429,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70610D6227BC72A2001C83EF /* SampleViewControllerTests.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppTests.swift in Sources */,
+				70610D6727BC7479001C83EF /* SampleServiceProtocolSpy.swift in Sources */,
+				70610D6527BC7344001C83EF /* SampleViewProtocolSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
