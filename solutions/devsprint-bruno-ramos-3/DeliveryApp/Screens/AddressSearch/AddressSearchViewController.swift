@@ -8,17 +8,49 @@
 import UIKit
 
 class AddressSearchViewController: UIViewController {
+    
+    private let searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.placeholder = "Rua, número, bairro"
+        search.hidesNavigationBarDuringPresentation = false
+        return search
+    }()
 
-    init() {
+    private let customView: AddressListViewProtocol
+    
+    
+    init(customView: AddressListViewProtocol) {
+        self.customView = customView
         super.init(nibName: nil, bundle: nil)
-
+    }
+    
+    override func loadView() {
+        self.view = customView
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Search"
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+}
 
-    override func loadView() {
-        self.view = AddressListView()
+
+extension AddressSearchViewController: AddressListViewDelegate {
+    func didTapOnSomeButton() {
+        //code
     }
 }
