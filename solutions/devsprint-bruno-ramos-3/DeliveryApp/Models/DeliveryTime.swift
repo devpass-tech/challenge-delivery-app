@@ -11,7 +11,7 @@ struct DeliveryTime {
     let min: Int
     let max: Int
     
-    init(from response: DeliveryTime) {
+    init(from response: RestaurantResponse.DeliveryTime) {
         self.min = response.min
         self.max = response.max
     }

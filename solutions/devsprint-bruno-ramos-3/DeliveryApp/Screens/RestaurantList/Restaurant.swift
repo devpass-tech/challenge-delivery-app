@@ -12,13 +12,11 @@ struct Restaurant {
     
     private let name: String
     private let category: String
-    private let minTime: Int
-    private let maxTime: Int
+    private let deliveryTime: DeliveryTime
     
     init(from response: RestaurantResponse) {
         self.name = response.name
         self.category = response.category
-        self.minTime = response.deliveryTime.min
-        self.maxTime = response.deliveryTime.max
+        self.deliveryTime = .init(from: response.deliveryTime)
     }
 }
