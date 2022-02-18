@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		6C2F74B627BD372400F7AE6D /* FeatureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2F74B527BD372400F7AE6D /* FeatureFactory.swift */; };
-=======
 		703F950027BD7018009F93DF /* RestaurantListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F94FF27BD7018009F93DF /* RestaurantListResponse.swift */; };
 		703F950227BD706A009F93DF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F950127BD706A009F93DF /* Restaurant.swift */; };
 		703F950427BD7E1B009F93DF /* RestauranteListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F950327BD7E1B009F93DF /* RestauranteListService.swift */; };
@@ -23,7 +21,6 @@
 		7069848D27BB26C900428AF3 /* SampleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848C27BB26C900428AF3 /* SampleConfigurator.swift */; };
 		7069848F27BB26CF00428AF3 /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069848E27BB26CF00428AF3 /* SampleService.swift */; };
 		79111D6427BC253D0035926B /* AddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79111D6327BC253D0035926B /* AddressCellView.swift */; };
->>>>>>> 364f0a4c312a74bf348ab1a1b55a2b5f39b2b99b
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
 		983271D4272752B50010C63A /* DeliveryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271D3272752B50010C63A /* DeliveryAppTests.swift */; };
@@ -58,9 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		6C2F74B527BD372400F7AE6D /* FeatureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFactory.swift; sourceTree = "<group>"; };
-=======
 		703F94FF27BD7018009F93DF /* RestaurantListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListResponse.swift; sourceTree = "<group>"; };
 		703F950127BD706A009F93DF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		703F950327BD7E1B009F93DF /* RestauranteListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestauranteListService.swift; sourceTree = "<group>"; };
@@ -74,7 +69,6 @@
 		7069848C27BB26C900428AF3 /* SampleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConfigurator.swift; sourceTree = "<group>"; };
 		7069848E27BB26CF00428AF3 /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
 		79111D6327BC253D0035926B /* AddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellView.swift; sourceTree = "<group>"; };
->>>>>>> 364f0a4c312a74bf348ab1a1b55a2b5f39b2b99b
 		983271B9272752AF0010C63A /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -441,11 +435,8 @@
 				703F950227BD706A009F93DF /* Restaurant.swift in Sources */,
 				98AF572627ADB16E00339A66 /* HomeView.swift in Sources */,
 				98AF572727ADB16E00339A66 /* AddressSearchViewController.swift in Sources */,
-<<<<<<< HEAD
 				6C2F74B627BD372400F7AE6D /* FeatureFactory.swift in Sources */,
-=======
 				705F73C227BF183E007A6087 /* HTTPClient.swift in Sources */,
->>>>>>> 364f0a4c312a74bf348ab1a1b55a2b5f39b2b99b
 				98AF572827ADB16E00339A66 /* AddressListView.swift in Sources */,
 				98AF572927ADB16E00339A66 /* RestaurantListViewController.swift in Sources */,
 				98AF572A27ADB16E00339A66 /* RestaurantListView.swift in Sources */,
