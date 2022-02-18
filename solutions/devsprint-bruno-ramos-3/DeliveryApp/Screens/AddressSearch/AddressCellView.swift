@@ -19,7 +19,6 @@ class AddressCellView: UITableViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.text = "Rua dos Patinhos, 126"
         return label
     }()
     
@@ -27,13 +26,17 @@ class AddressCellView: UITableViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Limoeiro"
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
+    }
+    
+    func setProperties(_ viewModel: AddressListView.ViewModel){
+        titleLabel.text = viewModel.address
+        subtitleLabel.text = viewModel.name
     }
     
     required init?(coder: NSCoder) {
