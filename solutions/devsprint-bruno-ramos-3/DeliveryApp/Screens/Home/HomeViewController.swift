@@ -16,11 +16,17 @@ class HomeViewController: UIViewController {
         let homeView = HomeView()
         return homeView
     }()
-
+    
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Nome do restaurante"
+        searchController.obscuresBackgroundDuringPresentation = false
+        return searchController
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-
-        navigationItem.title = "Delivery App"
     }
     
     required init?(coder: NSCoder) {
@@ -28,9 +34,10 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
+        navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        navigationItem.title = "Delivery App"
+        
         deliveryApi.fetchRestaurants { restaurants in
 
             DispatchQueue.main.async {
@@ -42,5 +49,14 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = homeView
+    }
+    
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     }
 }
