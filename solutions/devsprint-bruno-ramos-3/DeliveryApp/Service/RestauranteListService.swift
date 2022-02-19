@@ -8,30 +8,24 @@
 import Foundation
 
 class RestaurantListService {
-    private let apiURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
     
-    func fetchRestaurants(completion: @escaping ([RestaurantResponse]?, Error?) -> Void) {
-            guard let api = URL(string: apiURL) else {
-                return
+    private let apiURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
+    private let httpClient: NetworkProtocol
+    
+    init(httpClient: NetworkProtocol) {
+        self.httpClient = httpClient
+    }
+    
+    func fetchRestaurants(completion: @escaping (Result<[Restaurant], Error>) -> Void) {
+        httpClient.request(urlString: apiURL) { (result: Result<[RestaurantResponse], Error>) in
+            switch result {
+            case .success(let response):
+                let restaurants = response.map(Restaurant.init)
+                completion(.success(restaurants))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            let session = URLSession.shared
-            let task = session.dataTask(with: api) { (data, response, error) in
-                guard let jsonData = data else {
-                    return
-                }
-                
-                do {
-                    let decoder = JSONDecoder()
-                    let decoded = try decoder.decode([RestaurantResponse].self, from: jsonData)
-                    
-                    completion(decoded, nil)
-                } catch let error {
-                    completion(nil, error)
-                }
-            }
-            
-            task.resume()
         }
 
+    }
 }

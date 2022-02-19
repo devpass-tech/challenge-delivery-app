@@ -8,6 +8,8 @@
 import Foundation
 @testable import DeliveryApp
 
+typealias SampleServiceProtocolStub = SampleServiceProtocolSpy
+
 final class SampleServiceProtocolSpy: SampleServiceProtocol {
 
     private(set) var fetchSomeDataCalled = false

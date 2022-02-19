@@ -8,6 +8,8 @@
 import UIKit
 
 class RestaurantListViewController: UIViewController {
+    
+    let service = DeliveryApi()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -21,5 +23,14 @@ class RestaurantListViewController: UIViewController {
 
     override func loadView() {
         self.view = RestaurantListView()
+    }
+    
+    override func viewDidLoad() {
+        service.fetchRestaurants { restaurants in
+            DispatchQueue.main.async {
+
+                
+            }
+        }
     }
 }
