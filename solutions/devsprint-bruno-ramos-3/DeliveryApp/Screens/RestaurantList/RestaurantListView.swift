@@ -29,7 +29,7 @@ class RestaurantListView: UIView, UITableViewDelegate {
 	private lazy var restaurantTableView: UITableView = {
 		let tableView = UITableView()
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: "cell")
+//		tableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: "cell")
 		tableView.dataSource = self
 		tableView.delegate = self
 		tableView.separatorStyle = .none
@@ -60,8 +60,6 @@ extension RestaurantListView: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RestaurantTableViewCell
-		
-		return cell
+		UITableViewCell()
 	}
 }
