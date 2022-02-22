@@ -57,7 +57,7 @@ class RestaurantMenuListViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupComponents(){
+    func setupComponents() {
        
         addSubview(iconImageView)
         addSubview(titleLabel)
