@@ -12,15 +12,12 @@ protocol SampleServiceProtocol {
 }
 
 final class SampleService: SampleServiceProtocol {
-    private let apiDataSource: DeliveryApi
-
-    init(apiDataSource: DeliveryApi) {
-        self.apiDataSource = apiDataSource
-    }
-
+//    private let apiDataSource: DeliveryApi
+//
+//    init(apiDataSource: DeliveryApi) {
+//        self.apiDataSource = apiDataSource
+//    }
+//
     func fetchSomeData(completion: @escaping (Result<[String], Error>) -> ()) {
-        apiDataSource.fetchRestaurants { restaurantList in
-            completion(.success(restaurantList))
-        }
     }
 }

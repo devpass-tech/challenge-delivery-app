@@ -9,8 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    private let deliveryApi = DeliveryApi()
-
     private let homeView: HomeView = {
 
         let homeView = HomeView()
@@ -37,14 +35,6 @@ class HomeViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Delivery App"
-        
-        deliveryApi.fetchRestaurants { restaurants in
-
-            DispatchQueue.main.async {
-
-                self.homeView.updateView(with: restaurants)
-            }
-        }
     }
     
     override func loadView() {
