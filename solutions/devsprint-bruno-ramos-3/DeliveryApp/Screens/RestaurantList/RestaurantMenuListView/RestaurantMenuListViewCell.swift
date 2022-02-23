@@ -65,7 +65,7 @@ class RestaurantMenuListViewCell: UITableViewCell {
         
     }
     
-    func setupContraints(){
+    func setupContraints() {
         
         NSLayoutConstraint.activate([
         
