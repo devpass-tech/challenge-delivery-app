@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "983271B8272752AF0010C63A"
-               BuildableName = "DeliveryAppChallenge.app"
+               BuildableName = "DeliveryApp.app"
                BlueprintName = "DeliveryApp"
                ReferencedContainer = "container:DeliveryApp.xcodeproj">
             </BuildableReference>
@@ -26,14 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "983271CE272752B50010C63A"
-               BuildableName = "DeliveryAppChallengeTests.xctest"
+               BuildableName = "DeliveryAppTests.xctest"
                BlueprintName = "DeliveryAppTests"
                ReferencedContainer = "container:DeliveryApp.xcodeproj">
             </BuildableReference>
@@ -55,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "983271B8272752AF0010C63A"
-            BuildableName = "DeliveryAppChallenge.app"
+            BuildableName = "DeliveryApp.app"
             BlueprintName = "DeliveryApp"
             ReferencedContainer = "container:DeliveryApp.xcodeproj">
          </BuildableReference>
@@ -72,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "983271B8272752AF0010C63A"
-            BuildableName = "DeliveryAppChallenge.app"
+            BuildableName = "DeliveryApp.app"
             BlueprintName = "DeliveryApp"
             ReferencedContainer = "container:DeliveryApp.xcodeproj">
          </BuildableReference>
