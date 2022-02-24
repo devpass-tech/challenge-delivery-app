@@ -19,6 +19,7 @@
 		703F950227BD706A009F93DF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F950127BD706A009F93DF /* Restaurant.swift */; };
 		703F950627BEC28F009F93DF /* DeliveryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F950527BEC28F009F93DF /* DeliveryTime.swift */; };
 		7047989927C5ABFC005369EF /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047989827C5ABFC005369EF /* NetworkTests.swift */; };
+		7047989B27C706E1005369EF /* RestaurantRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047989A27C706E1005369EF /* RestaurantRequest.swift */; };
 		705F73C227BF183E007A6087 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705F73C127BF183E007A6087 /* Network.swift */; };
 		70610D6227BC72A2001C83EF /* SampleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70610D6127BC72A2001C83EF /* SampleViewControllerTests.swift */; };
 		70610D6527BC7344001C83EF /* SampleViewProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70610D6427BC7344001C83EF /* SampleViewProtocolSpy.swift */; };
@@ -73,6 +74,7 @@
 		703F950127BD706A009F93DF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		703F950527BEC28F009F93DF /* DeliveryTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTime.swift; sourceTree = "<group>"; };
 		7047989827C5ABFC005369EF /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		7047989A27C706E1005369EF /* RestaurantRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRequest.swift; sourceTree = "<group>"; };
 		705F73C127BF183E007A6087 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		70610D6127BC72A2001C83EF /* SampleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewControllerTests.swift; sourceTree = "<group>"; };
 		70610D6427BC7344001C83EF /* SampleViewProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewProtocolSpy.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				703F94FF27BD7018009F93DF /* RestaurantListResponse.swift */,
+				7047989A27C706E1005369EF /* RestaurantRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7047989B27C706E1005369EF /* RestaurantRequest.swift in Sources */,
 				98AF572227ADB16E00339A66 /* AppDelegate.swift in Sources */,
 				98AF573627ADB34C00339A66 /* DebugViewController.swift in Sources */,
 				98AF572327ADB16E00339A66 /* SceneDelegate.swift in Sources */,

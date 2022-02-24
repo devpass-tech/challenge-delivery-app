@@ -16,9 +16,9 @@ final class RestaurantListApiDataSource: RestaurantListDataSource {
     }
 
     func fetchRestaurantList(completion: @escaping (Result<[Restaurant], Error>) -> Void) {
-        let apiURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
+        let restaurantRequest = RestaurantListRequest()
 
-        network.request(urlString: apiURL) { (result: Result<[RestaurantResponse], Error>) in
+        network.request(networkRequest: restaurantRequest) { (result: Result<[RestaurantResponse], Error>) in
             switch result {
             case .success(let restaurantListResponse):
                 let restaurantList = restaurantListResponse.map(Restaurant.init)

@@ -8,17 +8,30 @@
 import Foundation
 
 protocol NetworkProtocol {
-    func request<T: Decodable>(urlString: String, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(networkRequest: NetworkRequest, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 protocol URLSessionProtocol {
-    func fetchData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
+    func fetchData(with urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
+}
+
+protocol NetworkRequest {
+    var urlString: String { get }
+    var httpMethod: HTTPMethod { get }
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
 }
 
 extension URLSession: URLSessionProtocol {
     
-    func fetchData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let dataTask = dataTask(with: url, completionHandler: completionHandler)
+    func fetchData(with urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let dataTask = dataTask(with: urlRequest, completionHandler: completionHandler)
         dataTask.resume()
     }
 }
@@ -31,13 +44,15 @@ class HTTPClient: NetworkProtocol {
         self.session = session
     }
     
-    func request<T: Decodable>(urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(networkRequest: NetworkRequest, completion: @escaping (Result<T, Error>) -> Void) {
         
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: networkRequest.urlString) else {
             completion(.failure(HTTPClientError.invalidURL))
             return
         }
-        session.fetchData(with: url) { data, response, error in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = networkRequest.httpMethod.rawValue
+        session.fetchData(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
