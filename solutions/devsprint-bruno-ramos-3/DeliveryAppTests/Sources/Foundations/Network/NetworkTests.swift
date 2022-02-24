@@ -178,7 +178,7 @@ class NetworkManagerMocks {
     }
     
     static var validHTTPResponse = HTTPURLResponse(url: .init(fileURLWithPath: "url"), statusCode: 200, httpVersion: nil, headerFields: nil)
-    static var invalidHTTPResponse = HTTPURLResponse(url: .init(fileURLWithPath: "url"), statusCode: 400, httpVersion: nil, headerFields: nil)
+    static var invalidHTTPResponse = HTTPURLResponse(url: .init(fileURLWithPath: "url"), statusCode: 300, httpVersion: nil, headerFields: nil)
     static var validURL = "devpass"
     static var invalidURL = "dévpãss"
     static var validData: Data? = {

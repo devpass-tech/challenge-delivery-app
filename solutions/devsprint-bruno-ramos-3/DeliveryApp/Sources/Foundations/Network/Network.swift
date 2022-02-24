@@ -42,7 +42,7 @@ class HTTPClient: NetworkProtocol {
                 completion(.failure(error))
                 return
             }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
                 completion(.failure(HTTPClientError.unexpectedStatusCode))
                 return
             }
