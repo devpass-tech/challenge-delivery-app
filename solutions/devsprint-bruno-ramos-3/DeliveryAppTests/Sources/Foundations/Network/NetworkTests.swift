@@ -16,7 +16,7 @@ class NetworkTests: XCTestCase {
     
     func test_request_givenInvalidURLString_shouldReturnHTTPClientErrorInvalidURL() throws {
         var result: NetworkResult?
-        sut.request(urlString: "á") {
+        sut.request(urlString: NetworkManagerMocks.invalidURL) {
             result = $0
         }
         
@@ -40,12 +40,12 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: "devpass") {
+        sut.request(urlString: NetworkManagerMocks.validURL) {
             result = $0
         }
         
         // Then
-       
+        
         XCTAssertTrue(urlSessionStub.fetchDataCalled)
         XCTAssertNotNil(urlSessionStub.fetchDataUrlPassed)
         
@@ -65,7 +65,7 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: "devpass") {
+        sut.request(urlString: NetworkManagerMocks.validURL) {
             result = $0
         }
         
@@ -79,7 +79,7 @@ class NetworkTests: XCTestCase {
             let unwrappedError = try XCTUnwrap(error as? HTTPClientError)
             XCTAssertEqual(unwrappedError, .unexpectedStatusCode)
         default:
-            XCTFail("Result should be failer with error")
+            XCTFail("Result should be failure with error")
         }
     }
     
@@ -91,7 +91,7 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: "devpass") {
+        sut.request(urlString: NetworkManagerMocks.validURL) {
             result = $0
         }
         
@@ -106,6 +106,49 @@ class NetworkTests: XCTestCase {
             XCTAssertEqual(unwrappedError, .invalidData)
         default:
             XCTFail("Result should be failer with error")
+        }
+    }
+    
+    func test_request_givenValidURL_andRequestReturnNilError_andHTTPResponseIs200_andValidData_shouldReturnSuccessWithValue() {
+        
+        urlSessionStub.completionHandlerToBeReturned = (NetworkManagerMocks.validData, NetworkManagerMocks.validHTTPResponse, nil)
+        
+        var result: NetworkResult?
+        sut.request(urlString: NetworkManagerMocks.validURL) {
+            result = $0
+        }
+        
+        XCTAssertTrue(urlSessionStub.fetchDataCalled)
+        XCTAssertNotNil(urlSessionStub.fetchDataUrlPassed)
+        
+        switch result {
+        case .success(let decodableObject):
+            XCTAssertEqual(decodableObject.name, "bruno")
+            
+        default:
+            XCTFail("Result should be success with value")
+        }
+    }
+    
+    func test_request_givenValidURL_andRequestReturnNilError_andHTTPResponseIs200_andInvalidData_shouldReturnDecodeError() throws {
+        
+        urlSessionStub.completionHandlerToBeReturned = (NetworkManagerMocks.invalidData, NetworkManagerMocks.validHTTPResponse, nil)
+        
+        var result: NetworkResult?
+        sut.request(urlString: NetworkManagerMocks.validURL) {
+            result = $0
+        }
+        
+        XCTAssertTrue(urlSessionStub.fetchDataCalled)
+        XCTAssertNotNil(urlSessionStub.fetchDataUrlPassed)
+        
+        switch result {
+        case .failure(let error):
+            let unwrappedError = try XCTUnwrap(error as? HTTPClientError)
+            XCTAssertEqual(unwrappedError, .decodeError)
+            
+        default:
+            XCTFail("Result should be decoded error without value")
         }
     }
     
@@ -136,6 +179,22 @@ class NetworkManagerMocks {
     
     static var validHTTPResponse = HTTPURLResponse(url: .init(fileURLWithPath: "url"), statusCode: 200, httpVersion: nil, headerFields: nil)
     static var invalidHTTPResponse = HTTPURLResponse(url: .init(fileURLWithPath: "url"), statusCode: 400, httpVersion: nil, headerFields: nil)
+    static var validURL = "devpass"
+    static var invalidURL = "dévpãss"
+    static var validData: Data? = {
+         """
+        {
+            "name": "bruno"
+        }
+        """.data(using: .utf8)
+    }()
+    static var invalidData: Data? = {
+         """
+        {
+            "nombre": "bruno"
+        }
+        """.data(using: .utf8)
+    }()
 }
 
 
