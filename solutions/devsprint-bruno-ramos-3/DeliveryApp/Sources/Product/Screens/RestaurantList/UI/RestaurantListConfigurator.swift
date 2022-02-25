@@ -20,7 +20,8 @@ enum RestaurantListConfigurator {
         )
         let getRestaurantList = GetRestaurantList(repository: repository)
         let viewController = RestaurantListViewController(
-            getRestaurantList: getRestaurantList
+            getRestaurantList: getRestaurantList,
+            customView: RestaurantListView()
         )
 
         return viewController

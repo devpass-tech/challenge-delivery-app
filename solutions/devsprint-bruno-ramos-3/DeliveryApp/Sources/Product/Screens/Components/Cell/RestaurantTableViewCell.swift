@@ -7,22 +7,15 @@
 
 import UIKit
 
-//MARK: -> Deletar meu mock quando implementar Data
-struct DummyData {
-	let imageLogo: UIImage = #imageLiteral(resourceName: "restaurant-logo")
-	let name: String = "Restaurant Name"
-	let type: String = "Restaurant Type"
-	let deliveryTime: DummyDeliveryTime = DummyDeliveryTime()
-}
-
-struct DummyDeliveryTime {
-	let min: Int = 1
-	let max: Int = 10
-}
-
 final class RestaurantTableViewCell: UITableViewCell {
-	
-	let dummyData: DummyData = DummyData()
+    
+    struct ViewModel {
+        let urlImage: String
+        let name: String
+        let category: String
+        let deliveryTimeMin: Int
+        let deliveryTimeMax: Int
+    }
 	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -36,7 +29,6 @@ final class RestaurantTableViewCell: UITableViewCell {
 	private lazy var restaurantLogo: UIImageView = {
 		let logo = UIImageView()
 		logo.translatesAutoresizingMaskIntoConstraints = false
-		logo.image = dummyData.imageLogo // Mock
 		logo.contentMode = .scaleAspectFill
 		logo.clipsToBounds = true
 		logo.layer.masksToBounds = true
@@ -48,7 +40,6 @@ final class RestaurantTableViewCell: UITableViewCell {
 	private lazy var restaurantLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = dummyData.name // Mock
 		label.textColor = .label
 		label.font = .boldSystemFont(ofSize: 15)
 		
@@ -58,7 +49,6 @@ final class RestaurantTableViewCell: UITableViewCell {
 	public lazy var restaurantType: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "\(dummyData.type) · " // Mock
 		label.textColor = .secondaryLabel
 		label.font = .systemFont(ofSize: 13)
 		
@@ -68,7 +58,6 @@ final class RestaurantTableViewCell: UITableViewCell {
 	public lazy var deliveryTimeLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "\(dummyData.deliveryTime.min) - \(dummyData.deliveryTime.max) min" // Mock
 		label.textColor = .secondaryLabel
 		label.font = .systemFont(ofSize: 13)
 		
@@ -117,4 +106,12 @@ extension RestaurantTableViewCell: ViewCode {
 	func setupExtraConfiguration() {
 		self.accessoryType = .disclosureIndicator
 	}
+    
+    func display(viewModel: ViewModel) {
+        restaurantLabel.text = viewModel.name
+        restaurantType.text = viewModel.category
+        deliveryTimeLabel.text = "\(viewModel.deliveryTimeMin) . \(viewModel.deliveryTimeMax)"
+    }
 }
+
+

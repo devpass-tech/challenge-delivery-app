@@ -19,12 +19,14 @@ final class RestaurantListApiDataSource: RestaurantListDataSource {
         let restaurantRequest = RestaurantListRequest()
 
         network.request(networkRequest: restaurantRequest) { (result: Result<[RestaurantResponse], Error>) in
-            switch result {
-            case .success(let restaurantListResponse):
-                let restaurantList = restaurantListResponse.map(Restaurant.init)
-                completion(.success(restaurantList))
-            case .failure(let error):
-                completion(.failure(error))
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let restaurantListResponse):
+                    let restaurantList = restaurantListResponse.map(Restaurant.init)
+                    completion(.success(restaurantList))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }
