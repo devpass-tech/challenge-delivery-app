@@ -49,7 +49,6 @@
 		98AF573027ADB16E00339A66 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98612706272F56AB0049403C /* SettingsView.swift */; };
 		98AF573327ADB16E00339A66 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C4368827ADAEBE00D9048A /* String+Extensions.swift */; };
 		98AF573627ADB34C00339A66 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF573527ADB34C00339A66 /* DebugViewController.swift */; };
-		FA60BC7327BDC37500A6EC46 /* RestaurantMenuListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60BC7227BDC37500A6EC46 /* RestaurantMenuListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -596,10 +595,15 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				7047989B27C706E1005369EF /* RestaurantRequest.swift in Sources */,
 =======
 				FA60BC7327BDC37500A6EC46 /* RestaurantMenuListViewCell.swift in Sources */,
 >>>>>>> bd4d0553a71ddfac157051d973fe3f175857927a
+=======
+				7047989B27C706E1005369EF /* RestaurantRequest.swift in Sources */,
+				FA60BC7327BDC37500A6EC46 /* RestaurantMenuListViewCell.swift in Sources */,
+>>>>>>> 9b400377d6450d2bcacc432c9ac5cf56c7c5cea7
 				98AF572227ADB16E00339A66 /* AppDelegate.swift in Sources */,
 				98AF573627ADB34C00339A66 /* DebugViewController.swift in Sources */,
 				98AF572327ADB16E00339A66 /* SceneDelegate.swift in Sources */,
@@ -618,7 +622,6 @@
 				705F73C227BF183E007A6087 /* Network.swift in Sources */,
 				98AF572827ADB16E00339A66 /* AddressListView.swift in Sources */,
 				98AF572927ADB16E00339A66 /* RestaurantListViewController.swift in Sources */,
-				98AF572A27ADB16E00339A66 /* RestaurantMenuListViewCell.swift in Sources */,
 				98AF572A27ADB16E00339A66 /* RestaurantListView.swift in Sources */,
 				7069848927BB26B900428AF3 /* SampleViewController.swift in Sources */,
 				98AF572B27ADB16E00339A66 /* RestaurantDetailsViewController.swift in Sources */,
