@@ -8,6 +8,7 @@
 import Foundation
 
 final class RestaurantListApiDataSource: RestaurantListDataSource {
+    
     private let network: NetworkProtocol
 
     init(network: NetworkProtocol) {
@@ -15,9 +16,9 @@ final class RestaurantListApiDataSource: RestaurantListDataSource {
     }
 
     func fetchRestaurantList(completion: @escaping (Result<[Restaurant], Error>) -> Void) {
-        let request = URLRequest(url: .init(string: "foo.com.br/restaurantList.json")!)
+        let restaurantRequest = RestaurantListRequest()
 
-        network.request(request: request) { (result: Result<[RestaurantResponse], Error>) in
+        network.request(networkRequest: restaurantRequest) { (result: Result<[RestaurantResponse], Error>) in
             switch result {
             case .success(let restaurantListResponse):
                 let restaurantList = restaurantListResponse.map(Restaurant.init)

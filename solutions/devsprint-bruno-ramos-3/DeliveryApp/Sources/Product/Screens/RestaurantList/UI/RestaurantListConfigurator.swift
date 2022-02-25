@@ -10,7 +10,7 @@ import UIKit
 
 enum RestaurantListConfigurator {
     static func make() -> UIViewController {
-        let networkManager = NetworkManager()
+        let networkManager = HTTPClient()
         let apiDataSource = RestaurantListApiDataSource(network: networkManager)
         let cache = RestaurantListCache.shared
         let cacheDataSource = RestaurantListCacheDataSource(restaurantListCache: cache)
