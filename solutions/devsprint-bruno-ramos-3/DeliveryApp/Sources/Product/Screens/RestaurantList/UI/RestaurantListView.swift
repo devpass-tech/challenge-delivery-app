@@ -7,16 +7,23 @@
 
 import UIKit
 
-class RestaurantListView: UIView, UITableViewDelegate {
-	
+protocol RestaurantListViewProtocol {
+    func display(viewModel: [RestaurantListView.ViewModel])
+}
+
+class RestaurantListView: UIView, UITableViewDelegate, RestaurantListViewProtocol {
+    
 	struct ViewModel {
-		let restaurants: [String]
+        let restaurant: RestaurantTableViewCell.ViewModel
 	}
 	
-	private var viewModel: ViewModel
+    private var viewModel: [ViewModel] = [] {
+        didSet {
+            restaurantTableView.reloadData()
+        }
+    }
 	
 	init() {
-		viewModel = .init(restaurants: [])
 		super.init(frame: .zero)
 		restaurantTableView.reloadData()
 		setup()
@@ -29,13 +36,17 @@ class RestaurantListView: UIView, UITableViewDelegate {
 	private lazy var restaurantTableView: UITableView = {
 		let tableView = UITableView()
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-//		tableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.identifier)
 		tableView.dataSource = self
 		tableView.delegate = self
 		tableView.separatorStyle = .none
 		
 		return tableView
 	}()
+    
+    func display(viewModel: [ViewModel]) {
+        self.viewModel = viewModel
+    }
 }
 
 extension RestaurantListView: ViewCode {
@@ -54,12 +65,30 @@ extension RestaurantListView: ViewCode {
 	}
 }
 
+extension UITableViewCell {
+    static var identifier: String {
+        String(describing: self)
+    }
+}
+
 extension RestaurantListView: UITableViewDataSource {
+    
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4
+        return viewModel.count
 	}
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as? RestaurantTableViewCell else {
+            
+            return UITableViewCell()
+        }
+        
+        let cellViewModel = viewModel[indexPath.row]
+        cell.display(viewModel: .init(urlImage: "", name: cellViewModel.restaurant.name, category: cellViewModel.restaurant.category, deliveryTimeMin: cellViewModel.restaurant.deliveryTimeMin, deliveryTimeMax: cellViewModel.restaurant.deliveryTimeMax))
+        return cell
 	}
 }

@@ -10,10 +10,11 @@ import UIKit
 
 struct Restaurant {
     
-    private let name: String
-    private let category: String
-    private let deliveryTime: DeliveryTime
-    
+    let name: String
+    let category: String
+    let deliveryTime: DeliveryTime
+
+
     init(from response: RestaurantResponse) {
         self.name = response.name
         self.category = response.category
