@@ -15,10 +15,15 @@ class NetworkTests: XCTestCase {
     typealias NetworkResult = Result<NetworkManagerMocks.DecodableFake, Error>
     
     func test_request_givenInvalidURLString_shouldReturnHTTPClientErrorInvalidURL() throws {
+        
+        // Given
+        
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.invalidURL) {
+        sut.request(networkRequest: NetworkRequestMockWithInvalidURL(), completion: {
             result = $0
-        }
+        })
+        
+        // Then
         
         XCTAssertFalse(urlSessionStub.fetchDataCalled)
         XCTAssertNil(urlSessionStub.fetchDataUrlPassed)
@@ -28,11 +33,12 @@ class NetworkTests: XCTestCase {
             let unwrappedError = try XCTUnwrap(error as? HTTPClientError)
             XCTAssertEqual(unwrappedError, .invalidURL)
         default:
-            XCTFail("Result should be failer with error")
+            XCTFail("Result should be failure with error")
         }
     }
     
     func test_request_givenValidURL_andSessionReturningError_shouldReturnExpectedError() {
+        
         // Given
         
         urlSessionStub.completionHandlerToBeReturned = (nil, nil, ErrorDummy())
@@ -40,9 +46,9 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.validURL) {
+        sut.request(networkRequest: NetworkRequestMock(), completion: {
             result = $0
-        }
+        })
         
         // Then
         
@@ -53,11 +59,12 @@ class NetworkTests: XCTestCase {
         case .failure(let error):
             XCTAssertNotNil(error as? ErrorDummy)
         default:
-            XCTFail("Result should be failer with error")
+            XCTFail("Result should be failure with error")
         }
     }
     
     func test_request_givenValidURL_andRequestReturnNilError_andHTTPResponseIsDiferentFrom200_shouldReturnHTTPClientErrorUnexpectedStatusCode() throws {
+        
         // Given
         
         urlSessionStub.completionHandlerToBeReturned = (nil, NetworkManagerMocks.invalidHTTPResponse, nil)
@@ -65,9 +72,9 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.validURL) {
+        sut.request(networkRequest: NetworkRequestMock(), completion: {
             result = $0
-        }
+        })
         
         // Then
         
@@ -84,6 +91,7 @@ class NetworkTests: XCTestCase {
     }
     
     func test_request_givenValidURL_andRequestReturnNilError_andHTTPResponseIs200_shouldReturnHTTPClientErrorInvalidData() throws {
+        
         // Given
         
         urlSessionStub.completionHandlerToBeReturned = (nil, NetworkManagerMocks.validHTTPResponse, nil)
@@ -91,9 +99,9 @@ class NetworkTests: XCTestCase {
         // When
         
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.validURL) {
+        sut.request(networkRequest: NetworkRequestMock(), completion: {
             result = $0
-        }
+        })
         
         // Then
         
@@ -105,7 +113,7 @@ class NetworkTests: XCTestCase {
             let unwrappedError = try XCTUnwrap(error as? HTTPClientError)
             XCTAssertEqual(unwrappedError, .invalidData)
         default:
-            XCTFail("Result should be failer with error")
+            XCTFail("Result should be failure with error")
         }
     }
     
@@ -114,9 +122,9 @@ class NetworkTests: XCTestCase {
         urlSessionStub.completionHandlerToBeReturned = (NetworkManagerMocks.validData, NetworkManagerMocks.validHTTPResponse, nil)
         
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.validURL) {
+        sut.request(networkRequest: NetworkRequestMock(), completion: {
             result = $0
-        }
+        })
         
         XCTAssertTrue(urlSessionStub.fetchDataCalled)
         XCTAssertNotNil(urlSessionStub.fetchDataUrlPassed)
@@ -135,9 +143,9 @@ class NetworkTests: XCTestCase {
         urlSessionStub.completionHandlerToBeReturned = (NetworkManagerMocks.invalidData, NetworkManagerMocks.validHTTPResponse, nil)
         
         var result: NetworkResult?
-        sut.request(urlString: NetworkManagerMocks.validURL) {
+        sut.request(networkRequest: NetworkRequestMock(), completion: {
             result = $0
-        }
+        })
         
         XCTAssertTrue(urlSessionStub.fetchDataCalled)
         XCTAssertNotNil(urlSessionStub.fetchDataUrlPassed)
@@ -156,15 +164,17 @@ class NetworkTests: XCTestCase {
 
 class URLSessionProtocolStub: URLSessionProtocol {
     
-    private(set) var fetchDataCalled = false
-    private(set) var fetchDataUrlPassed: URL?
-    var completionHandlerToBeReturned: (data: Data?, response: URLResponse?, error: Error?)?
-    
-    func fetchData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func fetchData(with urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         fetchDataCalled = true
-        fetchDataUrlPassed = url
+        fetchDataUrlPassed = urlRequest
         completionHandler(completionHandlerToBeReturned?.data, completionHandlerToBeReturned?.response, completionHandlerToBeReturned?.error)
     }
+    
+    
+    private(set) var fetchDataCalled = false
+    private(set) var fetchDataUrlPassed: URLRequest?
+    var completionHandlerToBeReturned: (data: Data?, response: URLResponse?, error: Error?)?
+    
 }
 
 class NetworkManagerMocks {
@@ -195,6 +205,16 @@ class NetworkManagerMocks {
         }
         """.data(using: .utf8)
     }()
+}
+
+struct NetworkRequestMock: NetworkRequest {
+    var urlString: String = NetworkManagerMocks.validURL
+    var httpMethod: HTTPMethod = HTTPMethod.get
+}
+
+struct NetworkRequestMockWithInvalidURL: NetworkRequest {
+    var urlString: String = NetworkManagerMocks.invalidURL
+    var httpMethod: HTTPMethod = HTTPMethod.get
 }
 
 
