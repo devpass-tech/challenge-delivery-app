@@ -11,6 +11,10 @@ protocol RestaurantListViewProtocol {
     func display(viewModel: [RestaurantListView.ViewModel])
 }
 
+protocol RestaurantListViewDelegate: AnyObject {
+    func didSelectRestaurant(at row: Int)
+}
+
 class RestaurantListView: UIView, UITableViewDelegate, RestaurantListViewProtocol {
     
 	struct ViewModel {
@@ -22,6 +26,8 @@ class RestaurantListView: UIView, UITableViewDelegate, RestaurantListViewProtoco
             restaurantTableView.reloadData()
         }
     }
+
+    weak var delegate: RestaurantListViewDelegate?
 	
 	init() {
 		super.init(frame: .zero)
@@ -91,4 +97,8 @@ extension RestaurantListView: UITableViewDataSource {
         cell.display(viewModel: .init(urlImage: "", name: cellViewModel.restaurant.name, category: cellViewModel.restaurant.category, deliveryTimeMin: cellViewModel.restaurant.deliveryTimeMin, deliveryTimeMax: cellViewModel.restaurant.deliveryTimeMax))
         return cell
 	}
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectRestaurant(at: indexPath.row)
+    }
 }

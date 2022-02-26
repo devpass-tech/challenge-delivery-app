@@ -7,13 +7,23 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController {
+protocol RestaurantListDisplayLogic: AnyObject {
+    func displayRestaurantList(viewModel: RestaurantList.FetchRestaurantList.ViewModel)
+    func displayError(_ error: Error)
+}
 
-    private let getRestaurantList: GetRestaurantListUseCase
+class RestaurantListViewController: UIViewController {
+    private let interactor: RestaurantListBusinessLogic
+    private let router: RestaurantListRoutingLogic
     private let customView: RestaurantListViewProtocol & UIView
 
-    init(getRestaurantList: GetRestaurantListUseCase, customView: RestaurantListViewProtocol & UIView) {
-        self.getRestaurantList = getRestaurantList
+    init(
+        interactor: RestaurantListBusinessLogic,
+        router: RestaurantListRoutingLogic,
+        customView: RestaurantListViewProtocol & UIView
+    ) {
+        self.interactor = interactor
+        self.router = router
         self.customView = customView
         super.init(nibName: nil, bundle: nil)
         navigationItem.title = "Restaurant List"
@@ -21,21 +31,7 @@ class RestaurantListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRestaurantList.execute { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            switch result {
-            case .success(let restaurantList):
-                let viewModel = restaurantList.map { restaurant in
-                    RestaurantListView.ViewModel(restaurant: .init(urlImage: "", name: restaurant.name, category: restaurant.category, deliveryTimeMin: restaurant.deliveryTime.min, deliveryTimeMax: restaurant.deliveryTime.max))
-                }
-                self.customView.display(viewModel: viewModel)
-            case.failure(let error):
-//                self.customView.display(error: error)
-                print("display error")
-            }
-        }
+        interactor.requestRestaurantList(request: .init())
     }
 
     required init?(coder: NSCoder) {
@@ -44,5 +40,19 @@ class RestaurantListViewController: UIViewController {
 
     override func loadView() {
         self.view = customView
+    }
+}
+
+extension RestaurantListViewController: RestaurantListDisplayLogic {
+    func displayRestaurantList(viewModel: RestaurantList.FetchRestaurantList.ViewModel) {
+        customView.display(viewModel: viewModel.restaurantListViewModel)
+    }
+
+    func displayError(_ error: Error) {}
+}
+
+extension RestaurantListViewController: RestaurantListViewDelegate {
+    func didSelectRestaurant(at row: Int) {
+        router.routeToRestaurantMenu(at: row)
     }
 }

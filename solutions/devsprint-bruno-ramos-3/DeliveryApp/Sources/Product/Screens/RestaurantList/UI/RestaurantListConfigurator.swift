@@ -19,10 +19,27 @@ enum RestaurantListConfigurator {
             secondaryDataSource: apiDataSource
         )
         let getRestaurantList = GetRestaurantList(repository: repository)
-        let viewController = RestaurantListViewController(
-            getRestaurantList: getRestaurantList,
-            customView: RestaurantListView()
+
+        let presenter = RestaurantListPresenter()
+
+        let interactor = RestaurantListInteractor(
+            presenter: presenter,
+            getRestaurantList: getRestaurantList
         )
+
+        let router = RestaurantListRouter()
+        let view = RestaurantListView()
+
+        let viewController = RestaurantListViewController(
+            interactor: interactor,
+            router: router,
+            customView: view
+        )
+
+        router.dataStore = interactor
+        presenter.viewController = viewController
+        router.viewController = viewController
+        view.delegate = viewController
 
         return viewController
     }
