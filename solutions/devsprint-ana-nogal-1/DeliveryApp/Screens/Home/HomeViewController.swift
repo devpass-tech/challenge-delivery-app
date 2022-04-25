@@ -7,7 +7,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text)
+    }
+    
 
     private let deliveryApi = DeliveryApi()
 
@@ -17,10 +21,17 @@ class HomeViewController: UIViewController {
         return homeView
     }()
 
+    lazy var searchController: UISearchController = {
+       let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Nome do restaurante"
+        return searchController
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
 
-        navigationItem.title = "Delivery App 🍕"
+        navigationItem.title = "Delivery App"
     }
     
     required init?(coder: NSCoder) {
@@ -28,9 +39,9 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
+        navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         deliveryApi.fetchRestaurants { restaurants in
 
             DispatchQueue.main.async {
