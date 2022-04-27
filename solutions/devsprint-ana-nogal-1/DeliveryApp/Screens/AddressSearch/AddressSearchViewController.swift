@@ -9,10 +9,10 @@ import UIKit
 
 class AddressSearchViewController: UIViewController {
 
-    let addressListView = AddressListView()
+   private let addressListView = AddressListView()
     
     
-    lazy var searchController: UISearchController = {
+   private lazy var searchController: UISearchController = {
     let searchController = UISearchController()
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Rua, número, bairro"
@@ -40,7 +40,7 @@ class AddressSearchViewController: UIViewController {
         self.view = addressListView
     }
     
-    func setup() {
+    private func setup() {
         navigationItem.title = "Search"
         navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
