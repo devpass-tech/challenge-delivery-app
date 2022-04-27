@@ -11,7 +11,7 @@ class AddressCell: UITableViewCell {
 
    static let identifier = "AdressCell"
     
-    lazy var stackViewCell: UIStackView = {
+    private lazy var stackViewCell: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 0
@@ -22,7 +22,7 @@ class AddressCell: UITableViewCell {
     lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: 15, weight: .semibold)
-        title.text = "Rua Bela Cintra, 495"
+        title.text = ""
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -30,11 +30,12 @@ class AddressCell: UITableViewCell {
     lazy var subTitle: UILabel = {
         let subTitle = UILabel()
         subTitle.font = .systemFont(ofSize: 13)
-        subTitle.text = "Consolação"
+        subTitle.text = ""
         subTitle.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
         subTitle.translatesAutoresizingMaskIntoConstraints = false
         return subTitle
     }()
+    
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,6 +43,8 @@ class AddressCell: UITableViewCell {
         buildViews()
         setupConstraints()
     }
+    
+    
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
