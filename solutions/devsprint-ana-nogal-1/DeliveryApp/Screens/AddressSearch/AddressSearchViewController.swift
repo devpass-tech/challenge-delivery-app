@@ -6,12 +6,15 @@
 //
 
 import UIKit
-
+//NO ULTIMO COMMIT, Não upar este arquivo!!!!!!!!!!
+//NO ULTIMO COMMIT, Não upar este arquivo!!!!!!!!!! ( só pra reforçar '-' )
 class AddressSearchViewController: UIViewController {
 
+    let service = DeliveryApi()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-
+        service.getAddresses()
     }
 
     required init?(coder: NSCoder) {
