@@ -11,14 +11,14 @@ final class LoadingView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Buscando endereços..."
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
+        let indicator = UIActivityIndicatorView(style: .large)
         indicator.startAnimating()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
@@ -29,6 +29,7 @@ final class LoadingView: UIView {
         stack.axis = .vertical
         stack.alignment = .center
         stack.spacing = 14
+        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
