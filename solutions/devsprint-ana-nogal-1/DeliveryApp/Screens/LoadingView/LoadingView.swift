@@ -1,0 +1,66 @@
+//
+//  LoadingView.swift
+//  DeliveryApp
+//
+//  Created by Luiza on 26/04/22.
+//
+
+import UIKit
+
+final class LoadingView: UIView {
+
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Buscando endereços..."
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.startAnimating()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 14
+        return stack
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configViews()
+        buildViews()
+        setupConstraints()
+    }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+extension LoadingView: ViewConfiguration {
+    internal func configViews() {
+        backgroundColor = .white
+    }
+
+    internal func buildViews() {
+        addSubview(stackView)
+        [titleLabel, activityIndicator].forEach(stackView.addArrangedSubview)
+    }
+
+    internal func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
+}
+
+
