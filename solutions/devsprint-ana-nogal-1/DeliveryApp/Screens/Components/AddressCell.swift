@@ -15,14 +15,12 @@ class AddressCell: UITableViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 0
-        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
     lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: 15, weight: .semibold)
-        title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
@@ -30,7 +28,6 @@ class AddressCell: UITableViewCell {
         let subTitle = UILabel()
         subTitle.font = .systemFont(ofSize: 13)
         subTitle.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
-        subTitle.translatesAutoresizingMaskIntoConstraints = false
         return subTitle
     }()
     
@@ -62,6 +59,10 @@ class AddressCell: UITableViewCell {
     }
     
     func setupConstraints() {
+        [stackViewCell, title, subTitle].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
         NSLayoutConstraint.activate([
             stackViewCell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16.5),
             stackViewCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 23.5),
