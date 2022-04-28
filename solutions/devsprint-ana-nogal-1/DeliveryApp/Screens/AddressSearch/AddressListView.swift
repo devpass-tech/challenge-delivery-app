@@ -13,7 +13,8 @@ protocol AddressListViewProtocol {
 
 class AddressListView: UIView, AddressListViewProtocol {
     
-    
+    var delegate: AddressSearchViewControllerProtol?
+    // fake , still need a model to full implement this code
     private var adresses: [String]
     
     private lazy var tableView: UITableView = {
@@ -25,7 +26,7 @@ class AddressListView: UIView, AddressListViewProtocol {
     
     //MARK: - Init
     init(){
-        adresses = ["Rua Aurora, 123", "Rua Jorjin, 91", "Rua Morpheus, 44", "Alameda dos Anjos, 137"]
+        adresses = ["Rua Aurora, 123", "Rua Jorjin, 91", "Rua Morpheus, 44", "Alameda dos Anjos, 137"] // fake temporary data
         
         super.init(frame: .zero)
         

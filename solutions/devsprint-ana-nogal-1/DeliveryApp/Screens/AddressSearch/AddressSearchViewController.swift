@@ -7,11 +7,17 @@
 
 import UIKit
 
-class AddressSearchViewController: UIViewController {
+protocol AddressSearchViewControllerProtol {
+    
+}
 
+class AddressSearchViewController: UIViewController, AddressSearchViewControllerProtol {
+
+    var addressListView = AddressListView()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-
+        addressListView.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -19,6 +25,6 @@ class AddressSearchViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = AddressListView()
+        self.view = addressListView
     }
 }
