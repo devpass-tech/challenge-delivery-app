@@ -16,18 +16,11 @@ struct DeliveryApi {
         completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
     }
 
-    func getAddresses() {
-        print("1")
+    func getAdresses() {
         if let url = URL(string: addressURL) {
-            print("2")
-            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
-//                print("data: :: \(data)")
-//                print("response: \(response)")
                 if let data = data {
                     do {
-                        print("3")
-                        print("Data:: : : : \(data)")
                         let res = try JSONDecoder().decode([Address].self, from: data)
                         print(res)
                     } catch let error {
