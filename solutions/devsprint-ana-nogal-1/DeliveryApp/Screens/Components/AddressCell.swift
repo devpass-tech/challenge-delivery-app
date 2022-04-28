@@ -22,7 +22,6 @@ class AddressCell: UITableViewCell {
     lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: 15, weight: .semibold)
-        title.text = ""
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -30,7 +29,6 @@ class AddressCell: UITableViewCell {
     lazy var subTitle: UILabel = {
         let subTitle = UILabel()
         subTitle.font = .systemFont(ofSize: 13)
-        subTitle.text = ""
         subTitle.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
         subTitle.translatesAutoresizingMaskIntoConstraints = false
         return subTitle
@@ -43,8 +41,6 @@ class AddressCell: UITableViewCell {
         buildViews()
         setupConstraints()
     }
-    
-    
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
