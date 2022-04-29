@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		877B5B2E28186170002C0B95 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B5B2D28186170002C0B95 /* LoadingView.swift */; };
-		877B5B302818617E002C0B95 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B5B2F2818617E002C0B95 /* EmptyView.swift */; };
 		877B5B3328186467002C0B95 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B5B3228186467002C0B95 /* ViewConfiguration.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		877B5B2D28186170002C0B95 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		877B5B2F2818617E002C0B95 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		877B5B3228186467002C0B95 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,14 +97,6 @@
 				877B5B2D28186170002C0B95 /* LoadingView.swift */,
 			);
 			path = LoadingView;
-			sourceTree = "<group>";
-		};
-		877B5B2C2818613A002C0B95 /* EmptyView */ = {
-			isa = PBXGroup;
-			children = (
-				877B5B2F2818617E002C0B95 /* EmptyView.swift */,
-			);
-			path = EmptyView;
 			sourceTree = "<group>";
 		};
 		877B5B312818644F002C0B95 /* ViewConfiguration */ = {
@@ -183,7 +173,6 @@
 				98F12963272F307100B88A87 /* Components */,
 				983271F2272753100010C63A /* Home */,
 				877B5B2B2818612B002C0B95 /* LoadingView */,
-				877B5B2C2818613A002C0B95 /* EmptyView */,
 				98EA0559272A08D7007B0228 /* AddressSearch */,
 				98EA055C272A0933007B0228 /* RestaurantList */,
 				98EA055F272A0950007B0228 /* RestaurantDetails */,
@@ -407,7 +396,6 @@
 				98AF573027ADB16E00339A66 /* SettingsView.swift in Sources */,
 				98AF573127ADB16E00339A66 /* DeliveryApi.swift in Sources */,
 				98AF573227ADB16E00339A66 /* Restaurant.swift in Sources */,
-				877B5B302818617E002C0B95 /* EmptyView.swift in Sources */,
 				98AF573327ADB16E00339A66 /* String+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

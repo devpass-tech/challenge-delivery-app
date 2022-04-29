@@ -7,11 +7,14 @@
 
 import UIKit
 
+struct LoadingViewConfiguration {
+    var title: String
+}
+
 final class LoadingView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Buscando endereços..."
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,8 +46,11 @@ final class LoadingView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(with configuration: LoadingViewConfiguration) {
+            titleLabel.text = configuration.title
+    }
 }
-
 
 extension LoadingView: ViewConfiguration {
     internal func configViews() {
