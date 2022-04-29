@@ -20,7 +20,7 @@ class RestaurantCell: UITableViewCell {
     
     lazy var title: UILabel = {
         let label = UILabel()
-        label.text = "Benjamin a Padaria"
+        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class RestaurantCell: UITableViewCell {
     
     lazy var subtitle: UILabel = {
         let label = UILabel()
-        label.text = "Padaria • 23-33 min"
+        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.tintColor = UIColor.lightText
         label.translatesAutoresizingMaskIntoConstraints = false
