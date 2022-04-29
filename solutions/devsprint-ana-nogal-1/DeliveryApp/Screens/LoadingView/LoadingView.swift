@@ -48,12 +48,12 @@ final class LoadingView: UIView {
     }
     
     func updateView(with configuration: LoadingViewConfiguration) {
-            titleLabel.text = configuration.title
+        titleLabel.text = configuration.title
     }
 }
 
 extension LoadingView: ViewConfiguration {
-    internal func configViews() {
+    func configViews() {
         backgroundColor = .white
     }
 
