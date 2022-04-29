@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		870B56F8281993AE00A4D17A /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B56F7281993AE00A4D17A /* AddressCell.swift */; };
+		87E33DF4281B3374004C1614 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E33DF3281B3374004C1614 /* Address.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
 		983271D4272752B50010C63A /* DeliveryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271D3272752B50010C63A /* DeliveryAppTests.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		870B56F7281993AE00A4D17A /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		87E33DF3281B3374004C1614 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				98C4368627ADAEA500D9048A /* Restaurant.swift */,
+				87E33DF3281B3374004C1614 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				98AF572427ADB16E00339A66 /* SampleComponentView.swift in Sources */,
 				98AF572527ADB16E00339A66 /* HomeViewController.swift in Sources */,
 				98AF572627ADB16E00339A66 /* HomeView.swift in Sources */,
+				87E33DF4281B3374004C1614 /* Address.swift in Sources */,
 				870B56F8281993AE00A4D17A /* AddressCell.swift in Sources */,
 				98AF572727ADB16E00339A66 /* AddressSearchViewController.swift in Sources */,
 				98AF572827ADB16E00339A66 /* AddressListView.swift in Sources */,

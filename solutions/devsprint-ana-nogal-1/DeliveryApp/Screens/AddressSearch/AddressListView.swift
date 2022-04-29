@@ -8,32 +8,33 @@
 import UIKit
 
 protocol AddressListViewProtocol {
-    func updateAddress()
+    func updateAddress(with list: [Address])
 }
 
 class AddressListView: UIView, AddressListViewProtocol {
     
-    var delegate: AddressSearchViewControllerProtol?
-    // fake , still need a model to full implement this code
-    private var adresses: [String]
+    var delegate: AddressSearchViewControllerProtocol?
+    
+//    let controller = AddressSearchViewController()
+    private var adresses: [Address]
     
     private lazy var tableView: UITableView = {
        let tableView  = UITableView()
         tableView.register(AddressCell.self, forCellReuseIdentifier: AddressCell.identifier)
+//        tableView.backgroundColor = .link
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     //MARK: - Init
     init(){
-        adresses = ["Rua Aurora, 123", "Rua Jorjin, 91", "Rua Morpheus, 44", "Alameda dos Anjos, 137"] // fake temporary data
-        
+        adresses = []
         super.init(frame: .zero)
         
         configViews()
         buildViews()
         setupConstraints()
-        
+//        controller.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -42,12 +43,15 @@ class AddressListView: UIView, AddressListViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateAddress() {
-        
+    func updateAddress(with list: [Address]) {
+        print("LISTA que recebi: \(list)")
+        adresses = list
+//        tableView.reloadData()
     }
     
     //MARK: - SetupView
     func configViews(){
+
     }
     
     func buildViews() {
@@ -73,8 +77,10 @@ extension AddressListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let address = adresses[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressCell.identifier, for: indexPath) as! AddressCell
-        cell.title.text = address
-        cell.subTitle.text = address
+//        cell.title.text = "\(address.street), \(address.number)"
+//        cell.subTitle.text = "\(address.neighborhood)"
+        
+        cell.address = address
         return cell
     }
     
