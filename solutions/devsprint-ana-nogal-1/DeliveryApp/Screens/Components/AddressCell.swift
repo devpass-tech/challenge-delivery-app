@@ -17,7 +17,7 @@ class AddressCell: UITableViewCell {
                 return
             }
             title.text = "\(address.street), \(address.number)"
-            subTitle.text = "\(address.number)"
+            subTitle.text = "\(address.neighborhood)"
         }
     }
     
@@ -25,14 +25,12 @@ class AddressCell: UITableViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 0
-//        stack.backgroundColor = .brown
         return stack
     }()
     
    private lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: 15, weight: .semibold)
-//        title.backgroundColor = .red
         return title
     }()
     

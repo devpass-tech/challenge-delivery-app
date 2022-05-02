@@ -14,14 +14,11 @@ protocol AddressListViewProtocol {
 class AddressListView: UIView, AddressListViewProtocol {
     
     var delegate: AddressSearchViewControllerProtocol?
-    
-//    let controller = AddressSearchViewController()
     private var adresses: [Address]
     
     private lazy var tableView: UITableView = {
        let tableView  = UITableView()
         tableView.register(AddressCell.self, forCellReuseIdentifier: AddressCell.identifier)
-//        tableView.backgroundColor = .link
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -34,7 +31,6 @@ class AddressListView: UIView, AddressListViewProtocol {
         configViews()
         buildViews()
         setupConstraints()
-//        controller.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -46,7 +42,7 @@ class AddressListView: UIView, AddressListViewProtocol {
     func updateAddress(with list: [Address]) {
         print("LISTA que recebi: \(list)")
         adresses = list
-//        tableView.reloadData()
+        tableView.reloadData()
     }
     
     //MARK: - SetupView
@@ -55,7 +51,6 @@ class AddressListView: UIView, AddressListViewProtocol {
     }
     
     func buildViews() {
-        
         [tableView].forEach(addSubview)
     }
     
@@ -77,13 +72,9 @@ extension AddressListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let address = adresses[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressCell.identifier, for: indexPath) as! AddressCell
-//        cell.title.text = "\(address.street), \(address.number)"
-//        cell.subTitle.text = "\(address.neighborhood)"
-        
         cell.address = address
         return cell
     }
-    
 }
 
 extension AddressListView: UITableViewDelegate {

@@ -22,6 +22,10 @@ class AddressSearchViewController: UIViewController,  AddressSearchViewControlle
         super.init(nibName: nil, bundle: nil)
         addressListView.delegate = self
         service.delegate = self
+    }
+    
+   override func viewDidLoad() {
+        super.viewDidLoad()
         service.getAdresses()
     }
 
@@ -34,12 +38,9 @@ class AddressSearchViewController: UIViewController,  AddressSearchViewControlle
     }
 
     func updateAddress( address : [Address]) {
-//        DispatchQueue.main.async {
-//            print("Entrei no main async")
-//            self.addressListView.updateAddress(with: address)
-//        }
-        addressListView.updateAddress(with: address)
-//        delegate?.updateAddress(with: address)
-        print("Entrei")
+        DispatchQueue.main.async {
+            print("Entrei no main async")
+            self.addressListView.updateAddress(with: address)
+        }
     }
 }

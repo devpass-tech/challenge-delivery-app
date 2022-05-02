@@ -18,6 +18,10 @@ struct DeliveryApi {
         completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
     }
 
+    func fetchAddress( _ completion: ([Address]) -> Void) {
+        
+    }
+    
     func getAdresses() {
         if let url = URL(string: addressURL) {
             URLSession.shared.dataTask(with: url) { data, response, error in
