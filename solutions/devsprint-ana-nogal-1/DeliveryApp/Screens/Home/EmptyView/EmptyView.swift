@@ -52,8 +52,7 @@ final class EmptyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(with configuration: EmptyViewConfiguration){
-            
+    func updateView(with configuration: EmptyViewConfiguration) {
             titleLabel.text = configuration.title
             subtitleLabel.text = configuration.subtitle
         }
