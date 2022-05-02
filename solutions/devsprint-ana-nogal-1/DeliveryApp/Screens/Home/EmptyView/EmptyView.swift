@@ -55,7 +55,7 @@ final class EmptyView: UIView {
     func updateView(with configuration: EmptyViewConfiguration) {
             titleLabel.text = configuration.title
             subtitleLabel.text = configuration.subtitle
-        }
+    }
 }
 
 extension EmptyView: ViewConfiguration {
