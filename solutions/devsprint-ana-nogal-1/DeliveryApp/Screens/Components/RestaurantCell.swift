@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct RestaurantCellConfiguration {
+     var title: String
+     var subtitle: String
+ }
+
 class RestaurantCell: UITableViewCell {
     
     static let identifier = "RestaurantCellIdentifier"
@@ -32,11 +37,6 @@ class RestaurantCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    struct RestaurantCellConfiguration {
-         var title: String
-         var subtitle: String
-     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
