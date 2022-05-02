@@ -9,7 +9,7 @@ import UIKit
 
 class RestaurantCell: UITableViewCell {
     
-    static let identifier = "restaurantCell"
+    static let identifier = "RestaurantCellIdentifier"
 
     lazy var image: UIImageView = {
         let img = UIImageView()
@@ -20,7 +20,6 @@ class RestaurantCell: UITableViewCell {
     
     lazy var title: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,12 +27,16 @@ class RestaurantCell: UITableViewCell {
     
     lazy var subtitle: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.tintColor = UIColor.lightText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    struct RestaurantCellConfiguration {
+         var title: String
+         var subtitle: String
+     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
          super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,9 +54,15 @@ class RestaurantCell: UITableViewCell {
          subtitle.text = nil
      }
     
+    func updateView(with configuration: RestaurantCellConfiguration){
+
+         title.text = configuration.title
+         subtitle.text = configuration.subtitle
+     }
+    
     //MARK: View Configuration
     func configViews() {
-        
+        backgroundColor = .white
     }
     
     func buildViews() {
@@ -71,3 +80,4 @@ class RestaurantCell: UITableViewCell {
         ])
     }
 }
+
