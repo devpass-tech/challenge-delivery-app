@@ -7,9 +7,15 @@
 
 import UIKit
 
+struct MenuItemCellConfiguration {
+    var itemName: String
+    var itemValue: String
+    var itemImage: UIImage
+}
+
 class MenuItemCell: UITableViewCell {
     
-    // celula tem titulo regular (nome da comida) alinhado na esquerda, subtitulo cinza claro (valor da comida) e a imaginem da comida na direita, e retornam da api. criar stack view para os titulos, e outra para os titulos e imagem.
+    static let identifier = "menuItemCell"
     
     private lazy var itemName: UILabel = {
         var name = UILabel()
@@ -25,22 +31,18 @@ class MenuItemCell: UITableViewCell {
     
     private lazy var itemImage: UIImageView = {
         var image = UIImageView()
-        //contentMode
+        image.contentMode = .scaleAspectFit
         //image.clipsToBounds = true
         //image.layer.masksToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
 
-    private lazy var stack: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         return stack
     }()
-    
-    func setupCell(image: String) {
-        itemImage.image = UIImage(named: image)
-    }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -48,4 +50,22 @@ class MenuItemCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setupCell(with configuration: MenuItemCellConfiguration) {
+        itemName.text = configuration.itemName
+        itemValue.text = configuration.itemValue
+        itemImage.image = configuration.itemImage
+    }
 }
+
+//    extension MenuItemCell: ViewConfiguration {
+//        func configureSubviews() {
+//            addSubview(stackView)
+//    }
+//
+//    func configureSubviewsConstraints() {
+//        NSLayoutConstraint.activate([
+//            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 15)])
+//    }
+//}
