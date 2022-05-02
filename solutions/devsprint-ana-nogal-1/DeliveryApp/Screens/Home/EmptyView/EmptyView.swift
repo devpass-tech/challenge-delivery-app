@@ -60,16 +60,16 @@ final class EmptyView: UIView {
 }
 
 extension EmptyView: ViewConfiguration {
-    internal func configViews() {
+    func configViews() {
         backgroundColor = .white
     }
 
-    internal func buildViews() {
+    func buildViews() {
         addSubview(stackView)
         [titleLabel, subtitleLabel].forEach(stackView.addArrangedSubview)
     }
 
-    internal func setupConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
