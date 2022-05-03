@@ -11,7 +11,7 @@ protocol AddressListViewProtocol: AnyObject {
     func updateAddress(with list: [Address])
 }
 
-class AddressListView: UIView, AddressListViewProtocol, ViewConfiguration {
+final class AddressListView: UIView, AddressListViewProtocol, ViewConfiguration {
     
     weak var delegate: AddressSearchViewControllerProtocol?
     private var adresses: [Address]

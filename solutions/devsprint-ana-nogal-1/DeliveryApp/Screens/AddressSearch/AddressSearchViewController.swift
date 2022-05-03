@@ -11,7 +11,7 @@ protocol AddressSearchViewControllerProtocol: AnyObject {
     func updateAddress(address: [Address])
 }
 
-class AddressSearchViewController: UIViewController, AddressSearchViewControllerProtocol {
+final class AddressSearchViewController: UIViewController, AddressSearchViewControllerProtocol {
     
    private let addressListView = AddressListView()
     weak var delegate: AddressListViewProtocol?
@@ -23,7 +23,6 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
         searchController.searchBar.placeholder = "Rua, número, bairro"
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchController
-        
     }()
     
     init(service: DeliveryApiProtocol = DeliveryApi()) {
@@ -39,11 +38,7 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
     }
     
     func updateAddress(address: [Address]) {
-//        DispatchQueue.main.async {
-//                    self.addressListView.updateAddress(with: address)
-//                }
         self.addressListView.updateAddress(with: address)
-        print("entrei aqui")
     }
     
     override func viewDidLoad() {
@@ -51,7 +46,6 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
         view.backgroundColor = .white
         setup()
         service?.getAdresses()
-        
     }
 
     override func loadView() {

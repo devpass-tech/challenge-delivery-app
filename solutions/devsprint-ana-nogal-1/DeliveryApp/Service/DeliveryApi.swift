@@ -12,11 +12,11 @@ protocol DeliveryApiProtocol: AnyObject {
     var searchControllerDelegate: AddressSearchViewControllerProtocol? { get set }
 }
 
-class DeliveryApi: DeliveryApiProtocol {
+final class DeliveryApi: DeliveryApiProtocol {
 
     weak var searchControllerDelegate: AddressSearchViewControllerProtocol?
 
-    let addressURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/address_search_results.json"
+    private let addressURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/address_search_results.json"
     
     func fetchRestaurants(_ completion: ([String]) -> Void) {
 
