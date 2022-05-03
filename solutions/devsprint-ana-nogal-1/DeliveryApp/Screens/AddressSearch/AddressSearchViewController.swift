@@ -35,11 +35,7 @@ final class AddressSearchViewController: UIViewController, AddressSearchViewCont
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func updateAddress(address: [Address]) {
-//        self.addressListView.updateAddress(with: address)
-//    }
-    
+
     func updateAddress() {
         service?.getAdresses({ address in
             DispatchQueue.main.async {
