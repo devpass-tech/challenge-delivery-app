@@ -15,7 +15,7 @@ final class AddressSearchViewController: UIViewController, AddressSearchViewCont
     
    private let addressListView = AddressListView()
     weak var delegate: AddressListViewProtocol?
-    var service: DeliveryApiProtocol?
+    private var service: DeliveryApiProtocol?
     
    private lazy var searchController: UISearchController = {
     let searchController = UISearchController()
