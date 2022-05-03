@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddressSearchViewControllerProtocol: AnyObject {
-    func updateAddress(address: [Address])
+    func updateAddress()
 }
 
 final class AddressSearchViewController: UIViewController, AddressSearchViewControllerProtocol {
@@ -28,24 +28,30 @@ final class AddressSearchViewController: UIViewController, AddressSearchViewCont
     init(service: DeliveryApiProtocol = DeliveryApi()) {
         super.init(nibName: nil, bundle: nil)
         addressListView.delegate = self
-        service.searchControllerDelegate = self
         self.service = service
-        
+        self.service?.searchControllerDelegate = self
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateAddress(address: [Address]) {
-        self.addressListView.updateAddress(with: address)
+//    func updateAddress(address: [Address]) {
+//        self.addressListView.updateAddress(with: address)
+//    }
+    
+    func updateAddress() {
+        service?.getAdresses({ address in
+            DispatchQueue.main.async {
+                self.addressListView.updateAddress(with: address)
+            }
+        })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setup()
-        service?.getAdresses()
+        updateAddress()
     }
 
     override func loadView() {

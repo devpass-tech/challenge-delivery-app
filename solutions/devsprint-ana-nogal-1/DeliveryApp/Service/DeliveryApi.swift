@@ -7,12 +7,13 @@
 
 import Foundation
 
-protocol DeliveryApiProtocol: AnyObject {
-    func getAdresses()
+protocol DeliveryApiProtocol {
+    
     var searchControllerDelegate: AddressSearchViewControllerProtocol? { get set }
+    func getAdresses(_ completion: @escaping ([Address]) -> Void)
 }
 
-final class DeliveryApi: DeliveryApiProtocol {
+struct DeliveryApi: DeliveryApiProtocol {
 
     weak var searchControllerDelegate: AddressSearchViewControllerProtocol?
 
@@ -23,13 +24,13 @@ final class DeliveryApi: DeliveryApiProtocol {
         completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
     }
     
-    func getAdresses() {
+    func getAdresses(_ completion: @escaping ([Address]) -> Void) {
             if let url = URL(string: addressURL) {
                 URLSession.shared.dataTask(with: url) { data, response, error in
                     if let data = data {
                         do {
-                            let res = try JSONDecoder().decode([Address].self, from: data)
-                            self.searchControllerDelegate?.updateAddress(address: res)
+                            let addresses = try JSONDecoder().decode([Address].self, from: data)
+                            completion(addresses)
                         } catch let error {
                             print("Error: \(error)")
                         }
@@ -37,11 +38,6 @@ final class DeliveryApi: DeliveryApiProtocol {
                 }.resume()
             }
         }
-
-    func searchAddresses(_ completion: ([String]) -> Void) {
-
-        completion(["Address 1", "Address 2", "Address 3"])
-    }
 
     func fetchRestaurantDetails(_ completion: (String) -> Void) {
 
