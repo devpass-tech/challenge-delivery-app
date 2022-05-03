@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddressCell: UITableViewCell {
+class AddressCell: UITableViewCell, ViewConfiguration {
 
    static let identifier = "AdressCell"
     
@@ -34,9 +34,7 @@ class AddressCell: UITableViewCell {
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configViews()
-        buildViews()
-        setupConstraints()
+        setupViews()
     }
     
     @available(*, unavailable)
