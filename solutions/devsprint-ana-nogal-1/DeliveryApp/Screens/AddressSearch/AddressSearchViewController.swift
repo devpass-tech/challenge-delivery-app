@@ -15,7 +15,7 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
     
    private let addressListView = AddressListView()
     weak var delegate: AddressListViewProtocol?
-    var service = DeliveryApi()
+    var service: DeliveryApiProtocol?
     
    private lazy var searchController: UISearchController = {
     let searchController = UISearchController()
@@ -26,10 +26,12 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
         
     }()
     
-    init() {
+    init(service: DeliveryApiProtocol = DeliveryApi()) {
         super.init(nibName: nil, bundle: nil)
         addressListView.delegate = self
-        service.delegate = self
+        service.searchControllerDelegate = self
+        self.service = service
+        
     }
 
     required init?(coder: NSCoder) {
@@ -37,16 +39,19 @@ class AddressSearchViewController: UIViewController, AddressSearchViewController
     }
     
     func updateAddress(address: [Address]) {
-        DispatchQueue.main.async {
-                    self.addressListView.updateAddress(with: address)
-                }
+//        DispatchQueue.main.async {
+//                    self.addressListView.updateAddress(with: address)
+//                }
+        self.addressListView.updateAddress(with: address)
+        print("entrei aqui")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
-        service.getAdresses()
+        service?.getAdresses()
+        
     }
 
     override func loadView() {

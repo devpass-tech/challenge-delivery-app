@@ -38,7 +38,7 @@ class AddressListView: UIView, AddressListViewProtocol, ViewConfiguration {
     
     func updateAddress(with list: [Address]) {
         adresses = list
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     //MARK: - SetupView

@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct DeliveryApi {
+protocol DeliveryApiProtocol: AnyObject {
+    func getAdresses()
+    var searchControllerDelegate: AddressSearchViewControllerProtocol? { get set }
+}
 
-    weak var delegate: AddressSearchViewControllerProtocol?
+class DeliveryApi: DeliveryApiProtocol {
+
+    weak var searchControllerDelegate: AddressSearchViewControllerProtocol?
 
     let addressURL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/address_search_results.json"
     
@@ -24,7 +29,7 @@ struct DeliveryApi {
                     if let data = data {
                         do {
                             let res = try JSONDecoder().decode([Address].self, from: data)
-                            delegate?.updateAddress(address: res)
+                            self.searchControllerDelegate?.updateAddress(address: res)
                         } catch let error {
                             print("Error: \(error)")
                         }
