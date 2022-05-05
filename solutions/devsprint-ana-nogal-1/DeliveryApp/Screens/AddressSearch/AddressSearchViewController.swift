@@ -7,10 +7,15 @@
 
 import UIKit
 
-class AddressSearchViewController: UIViewController {
+protocol AddressSearchViewControllerProtocol: AnyObject {
+    func updateAddress()
+}
 
-   private let addressListView = AddressListView()
+final class AddressSearchViewController: UIViewController, AddressSearchViewControllerProtocol {
     
+   private let addressListView = AddressListView()
+    weak var delegate: AddressListViewProtocol?
+    private var service: DeliveryApiProtocol?
     
    private lazy var searchController: UISearchController = {
     let searchController = UISearchController()
@@ -18,22 +23,31 @@ class AddressSearchViewController: UIViewController {
         searchController.searchBar.placeholder = "Rua, número, bairro"
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchController
-        
     }()
     
-    init() {
+    init(service: DeliveryApiProtocol = DeliveryApi()) {
         super.init(nibName: nil, bundle: nil)
-
+        addressListView.delegate = self
+        self.service = service
+        self.service?.searchControllerDelegate = self
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func updateAddress() {
+        service?.getAdresses({ address in
+            DispatchQueue.main.async {
+                self.addressListView.updateAddress(with: address)
+            }
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setup()
+        updateAddress()
     }
 
     override func loadView() {
@@ -46,9 +60,6 @@ class AddressSearchViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
-    
 }
 
-extension AddressSearchViewController:  UISearchBarDelegate {
-    
-}
+extension AddressSearchViewController:  UISearchBarDelegate { }

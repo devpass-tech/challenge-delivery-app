@@ -7,9 +7,19 @@
 
 import UIKit
 
-class AddressCell: UITableViewCell {
+class AddressCell: UITableViewCell, ViewConfiguration {
 
    static let identifier = "AdressCell"
+    
+    var address: Address? {
+        didSet {
+            guard let address = address else {
+                return
+            }
+            title.text = "\(address.street), \(address.number)"
+            subTitle.text = "\(address.neighborhood)"
+        }
+    }
     
     private lazy var stackViewCell: UIStackView = {
         let stack = UIStackView()
@@ -18,13 +28,13 @@ class AddressCell: UITableViewCell {
         return stack
     }()
     
-    lazy var title: UILabel = {
+    private lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: 15, weight: .semibold)
         return title
     }()
     
-    lazy var subTitle: UILabel = {
+    private lazy var subTitle: UILabel = {
         let subTitle = UILabel()
         subTitle.font = .systemFont(ofSize: 13)
         subTitle.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
@@ -34,9 +44,7 @@ class AddressCell: UITableViewCell {
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configViews()
-        buildViews()
-        setupConstraints()
+        setupViews()
     }
     
     @available(*, unavailable)
