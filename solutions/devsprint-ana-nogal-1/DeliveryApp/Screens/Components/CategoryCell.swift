@@ -8,33 +8,35 @@
 import Foundation
 import UIKit
 
-final class CategoryCell: UITableViewCell, ViewConfiguration {
-   
+class CategoryCell: UICollectionViewCell, ViewConfiguration {
+    
     static var identifier = "CategoryCell"
     
     private lazy var categoryStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .vertical
-        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
-    private lazy var categoryImage: UIImageView = {
-       let catImage = UIImageView()
-        catImage.image = UIImage(named: "pizza")
+    lazy var categoryImage: UIImageView = {
+        let catImage = UIImageView()
+        catImage.layer.masksToBounds = true
+        catImage.layer.cornerRadius = 14
         return catImage
     }()
     
-    private lazy var categoryLabel: UILabel = {
-       let catLabel = UILabel()
-        catLabel.text = "Pizza"
+    lazy var categoryLabel: UILabel = {
+        let catLabel = UILabel()
+        catLabel.textAlignment = .center
+        catLabel.font = .systemFont(ofSize: 12)
+        catLabel.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
         return catLabel
     }()
     
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect){
+        super.init(frame: frame)
         setupViews()
     }
     @available(*, unavailable)
@@ -62,10 +64,8 @@ final class CategoryCell: UITableViewCell, ViewConfiguration {
             categoryStackView.topAnchor.constraint(equalTo: topAnchor),
             categoryStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             categoryStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            categoryStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             categoryImage.heightAnchor.constraint(equalToConstant: 54),
-            categoryImage.widthAnchor.constraint(equalToConstant: 54)
         ])
     }
 }
