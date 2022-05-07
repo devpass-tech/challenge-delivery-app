@@ -52,8 +52,7 @@ class CategoryCell: UICollectionViewCell, ViewConfiguration {
     func configViews() { }
     
     func buildViews() {
-        [categoryStackView].forEach(addSubview)
-        [categoryImage,categoryLabel].forEach(categoryStackView.addArrangedSubview)
+        [categoryImage,categoryLabel].forEach(addSubview)
     }
     
     func setupConstraints() {
@@ -61,9 +60,14 @@ class CategoryCell: UICollectionViewCell, ViewConfiguration {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
-            categoryStackView.topAnchor.constraint(equalTo: topAnchor),
-            categoryStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            categoryStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            categoryImage.topAnchor.constraint(equalTo: topAnchor),
+            categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2.5),
+            categoryImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2.5),
+          
+            categoryLabel.topAnchor.constraint(equalTo: categoryImage.bottomAnchor, constant: 10),
+            categoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            categoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            categoryLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             categoryImage.heightAnchor.constraint(equalToConstant: 54),
         ])
