@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:modules/Features">
+   </FileRef>
+   <FileRef
+      location = "group:modules/Core">
+   </FileRef>
+   <FileRef
+      location = "group:modules/UI">
+   </FileRef>
+   <FileRef
+      location = "group:application/DeliveryAppChallenge.xcodeproj">
+   </FileRef>
+</Workspace>
