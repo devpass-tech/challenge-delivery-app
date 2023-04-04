@@ -1,13 +1,14 @@
 import UIKit
 import Navigation
 import Restaurants
+import ServicesInterface
 
-final class HomeViewController: UIViewController {
+public final class HomeViewController: UIViewController {
     
-    private let deliveryApi: DeliveryApiProtocol
-    private let customView: HomeViewProtocol
+    let deliveryApi: DeliveryAPIProtocol
+    let customView: HomeViewProtocol
     
-    init(customView: HomeViewProtocol, deliveryApi: DeliveryApiProtocol) {
+    public init(customView: HomeViewProtocol, deliveryApi: DeliveryAPIProtocol) {
         self.customView = customView
         self.deliveryApi = deliveryApi
         super.init(nibName: nil, bundle: nil)
@@ -17,17 +18,17 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    public override func loadView() {
         view = customView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         title = "Delivery App"
         customView.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         fetchRestaurants()
     }
     
@@ -42,7 +43,7 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
-    func didTapOnRestaurantCell() {
+    public func didTapOnRestaurantCell() {
         let restaurantDetailsRoute = RestaurantDetailsRoute(presentationStyle: PushPresentationStyle())
         try? RouterService.shared.navigate(to: restaurantDetailsRoute, from: self)
     }

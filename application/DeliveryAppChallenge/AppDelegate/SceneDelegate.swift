@@ -1,6 +1,7 @@
 import UIKit
 import Navigation
 import Restaurants
+import Home
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -11,9 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         registerFeatures()
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let viewController = HomeFactory.make(with: .init())
+        
+        let homeViewController = HomeFactory.make()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: homeViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         self.window?.rootViewController = navigationController
         self.window?.windowScene = windowScene
@@ -21,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func registerFeatures() {
-        RestaurantsFeature.bootstrap()
+        RestaurantFeature.bootstrap()
     }
 }
 

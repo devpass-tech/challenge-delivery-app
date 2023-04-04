@@ -1,23 +1,23 @@
 import UIKit
 import UIFoundations
 
-protocol HomeViewDelegate: AnyObject {
+public protocol HomeViewDelegate: AnyObject {
     func didTapOnRestaurantCell()
 }
 
-protocol HomeViewProtocol: UIView {
+public protocol HomeViewProtocol: UIView {
     var delegate: HomeViewDelegate? { get set }
     func displayRestaurants(_ viewModel: HomeView.ViewModel)
 }
 
-final class HomeView: UIView {
+public final class HomeView: UIView {
     
-    struct ViewModel {
+    public struct ViewModel {
         let restaurants: [String]
     }
     
     private var viewModel: ViewModel
-    weak var delegate: HomeViewDelegate?
+    public weak var delegate: HomeViewDelegate?
     
     public lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -29,7 +29,7 @@ final class HomeView: UIView {
         return tableView
     }()
     
-    init() {
+    public init() {
         viewModel = .init(restaurants: [])
         super.init(frame: .zero)
         setup()
@@ -41,13 +41,11 @@ final class HomeView: UIView {
 }
 
 extension HomeView: ViewCode {
-    
-    func setupComponents() {
+    public func setupComponents() {
         addSubview(tableView)
     }
     
-    func setupConstraints() {
-        
+    public func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
@@ -59,7 +57,7 @@ extension HomeView: ViewCode {
 
 extension HomeView: HomeViewProtocol {
     
-    func displayRestaurants(_ viewModel: ViewModel) {
+    public func displayRestaurants(_ viewModel: ViewModel) {
         self.viewModel = viewModel
         self.tableView.reloadData()
     }
@@ -67,11 +65,11 @@ extension HomeView: HomeViewProtocol {
 
 extension HomeView: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.restaurants.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCellIdentifier", for: indexPath) as! RestaurantCell
         cell.setup(viewModel.restaurants[indexPath.row])
         return cell
@@ -79,7 +77,7 @@ extension HomeView: UITableViewDataSource {
 }
 
 extension HomeView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didTapOnRestaurantCell()
     }
 }
