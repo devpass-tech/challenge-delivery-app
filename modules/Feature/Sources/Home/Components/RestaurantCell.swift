@@ -51,7 +51,7 @@ final class RestaurantCell: UITableViewCell{
     }
 }
 
-extension RestaurantCell: ViewCode{
+extension RestaurantCell: ViewCode {
     
     func setupComponents() {
         contentView.addSubview(restaurantLogo)

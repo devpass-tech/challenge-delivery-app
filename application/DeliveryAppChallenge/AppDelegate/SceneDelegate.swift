@@ -11,11 +11,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         registerFeatures()
 
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene),
+              let rootViewController = try? RouterService.shared.controller(for: HomeRoute()) else { return }
         
-        let homeViewController = HomeFactory.make()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: homeViewController)
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         self.window?.rootViewController = navigationController
         self.window?.windowScene = windowScene
@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func registerFeatures() {
+        HomeFeature.bootstrap()
         RestaurantFeature.bootstrap()
     }
 }
