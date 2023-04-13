@@ -5,10 +5,14 @@ public struct HomeRoute: Route {
     public static var identifier: RouterIdentifier {
         "Home"
     }
-
-    public var presentationStyle: PresentationStyle
-
-    public init(presentationStyle: PresentationStyle = RootPresentationStyle()) {
-        self.presentationStyle = presentationStyle
+    
+    let source: HomeStartSource
+    
+    public init(source: HomeStartSource) {
+        self.source = source
     }
+}
+
+struct HomeBindings {
+    let onSomethingTapped: () -> Void
 }

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15BAF90A29DC703E0094F6FF /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 15BAF90929DC703E0094F6FF /* Home */; };
-		15F0D4F528BFCA5A00519808 /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = 15F0D4F428BFCA5A00519808 /* UIFoundations */; };
-		15F0D4F728BFCA8000519808 /* CoreModules in Frameworks */ = {isa = PBXBuildFile; productRef = 15F0D4F628BFCA8000519808 /* CoreModules */; };
-		15F0D4F928BFD0E900519808 /* Restaurants in Frameworks */ = {isa = PBXBuildFile; productRef = 15F0D4F828BFD0E900519808 /* Restaurants */; };
 		7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B448273334B200CE8273 /* NetworkManagerTests.swift */; };
 		744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */; };
 		74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */; };
@@ -21,6 +17,9 @@
 		983271DE272752B50010C63A /* DeliveryAppChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DD272752B50010C63A /* DeliveryAppChallengeUITests.swift */; };
 		983271E0272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DF272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift */; };
 		98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
+		E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4A29E888DE00ADBA23 /* CoreModules */; };
+		E5C23C4D29E888DE00ADBA23 /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4C29E888DE00ADBA23 /* UIFoundations */; };
+		E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */; };
 		F5912B1E273C3E5B00A71644 /* RestaurantListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1D273C3E5B00A71644 /* RestaurantListDataSourceTests.swift */; };
 		F5912B20273C3F9500A71644 /* NetworkManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */; };
 /* End PBXBuildFile section */
@@ -66,10 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F0D4F728BFCA8000519808 /* CoreModules in Frameworks */,
-				15BAF90A29DC703E0094F6FF /* Home in Frameworks */,
-				15F0D4F928BFD0E900519808 /* Restaurants in Frameworks */,
-				15F0D4F528BFCA5A00519808 /* UIFoundations in Frameworks */,
+				E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */,
+				E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */,
+				E5C23C4D29E888DE00ADBA23 /* UIFoundations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +207,9 @@
 			);
 			name = DeliveryAppChallenge;
 			packageProductDependencies = (
-				15F0D4F428BFCA5A00519808 /* UIFoundations */,
-				15F0D4F628BFCA8000519808 /* CoreModules */,
-				15F0D4F828BFD0E900519808 /* Restaurants */,
-				15BAF90929DC703E0094F6FF /* Home */,
+				E5C23C4A29E888DE00ADBA23 /* CoreModules */,
+				E5C23C4C29E888DE00ADBA23 /* UIFoundations */,
+				E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */,
 			);
 			productName = DeliveryAppChallenge;
 			productReference = 983271B9272752AF0010C63A /* DeliveryAppChallenge.app */;
@@ -433,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -488,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -513,7 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,7 +539,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,21 +691,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		15BAF90929DC703E0094F6FF /* Home */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Home;
-		};
-		15F0D4F428BFCA5A00519808 /* UIFoundations */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UIFoundations;
-		};
-		15F0D4F628BFCA8000519808 /* CoreModules */ = {
+		E5C23C4A29E888DE00ADBA23 /* CoreModules */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreModules;
 		};
-		15F0D4F828BFD0E900519808 /* Restaurants */ = {
+		E5C23C4C29E888DE00ADBA23 /* UIFoundations */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Restaurants;
+			productName = UIFoundations;
+		};
+		E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeaturesPack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

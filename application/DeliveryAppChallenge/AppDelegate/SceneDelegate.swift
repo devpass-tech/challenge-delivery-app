@@ -1,7 +1,7 @@
 import UIKit
 import Navigation
-import Restaurants
 import Home
+//import Restaurants
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -11,8 +11,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         registerFeatures()
 
-        guard let windowScene = (scene as? UIWindowScene),
-              let rootViewController = try? RouterService.shared.controller(for: HomeRoute()) else { return }
+        let homeRoute: HomeRoute = .init(source: .appStart)
+        guard
+            let windowScene = (scene as? UIWindowScene),
+            let rootViewController = try? RouterService.shared.controller(for: homeRoute)
+        else { return }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -24,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func registerFeatures() {
         HomeFeature.bootstrap()
-        RestaurantFeature.bootstrap()
+//        RestaurantFeature.bootstrap()
     }
 }
 

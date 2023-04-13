@@ -1,16 +1,29 @@
 import UIKit
 import Navigation
-import Restaurants
+//import Restaurants
 import ServicesInterface
+
+public enum HomeStartSource {
+    case appStart
+    case deepLink(URL)
+}
 
 public final class HomeViewController: UIViewController {
     
     let deliveryApi: DeliveryAPIProtocol
     let customView: HomeViewProtocol
+    let source: HomeStartSource
+    let onSomeButtonTapped: () -> Void
     
-    public init(customView: HomeViewProtocol, deliveryApi: DeliveryAPIProtocol) {
+    public init(
+        source: HomeStartSource,
+        customView: HomeViewProtocol,
+        deliveryApi: DeliveryAPIProtocol,
+        onSomeButtonTapped: @escaping () -> Void
+    ) {
         self.customView = customView
         self.deliveryApi = deliveryApi
+        self.onSomeButtonTapped = onSomeButtonTapped
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,7 +57,7 @@ public final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDelegate {
     public func didTapOnRestaurantCell() {
-        let restaurantDetailsRoute = RestaurantDetailsRoute(presentationStyle: PushPresentationStyle())
-        try? RouterService.shared.navigate(to: restaurantDetailsRoute, from: self)
+//        let restaurantDetailsRoute = RestaurantDetailsRoute(presentationStyle: PushPresentationStyle())
+//        try? RouterService.shared.navigate(to: restaurantDetailsRoute, from: self)
     }
 }
