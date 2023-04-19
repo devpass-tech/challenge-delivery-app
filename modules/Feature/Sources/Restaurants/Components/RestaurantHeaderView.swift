@@ -4,7 +4,7 @@ import UIFoundations
 
 public final class RestaurantHeaderView: UIView {
     
-    private var imageView: UIImageView = {
+    private var restaurantImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "restaurant-logo")
         imageView.clipsToBounds = true
@@ -13,9 +13,8 @@ public final class RestaurantHeaderView: UIView {
         return imageView
     }()
     
-    private var label: UILabel = {
+    private var restaurantLabel: UILabel = {
        let label = UILabel()
-        label.text = "Benjamin - A padaria"
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,20 +37,24 @@ public final class RestaurantHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented yet")
     }
+    
+    func update(from restaurantName: String) {
+        restaurantLabel.text = restaurantName
+    }
 }
 
 extension RestaurantHeaderView: ViewCode {
     
     public func setupComponents() {
         addSubview(mainContentStackView)
-        mainContentStackView.addArrangedSubview(label)
-        mainContentStackView.addArrangedSubview(imageView)
+        mainContentStackView.addArrangedSubview(restaurantLabel)
+        mainContentStackView.addArrangedSubview(restaurantImageView)
     }
     
     public func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: imageFrame),
-            imageView.heightAnchor.constraint(equalToConstant: imageFrame),
+            restaurantImageView.widthAnchor.constraint(equalToConstant: imageFrame),
+            restaurantImageView.heightAnchor.constraint(equalToConstant: imageFrame),
             mainContentStackView.topAnchor.constraint(equalTo: topAnchor),
             mainContentStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
             mainContentStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0)
@@ -59,6 +62,6 @@ extension RestaurantHeaderView: ViewCode {
     }
     
     public func setupExtraConfiguration() {
-        imageView.layer.cornerRadius = imageFrame/2
+        restaurantImageView.layer.cornerRadius = imageFrame/2
     }
 }

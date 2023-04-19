@@ -1,7 +1,7 @@
 import UIKit
 import Navigation
 import Home
-//import Restaurants
+import Restaurants
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func registerFeatures() {
         HomeFeature.bootstrap()
-//        RestaurantFeature.bootstrap()
+        RestaurantFeature.bootstrap()
     }
 }
 

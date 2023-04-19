@@ -2,15 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:modules/UILibrary">
+   </FileRef>
+   <FileRef
       location = "group:modules/CoreLibrary">
    </FileRef>
    <FileRef
       location = "group:modules/Feature">
    </FileRef>
    <FileRef
-      location = "group:modules/UI">
-   </FileRef>
-   <FileRef
-      location = "group:modules/UI/../../application/DeliveryAppChallenge.xcodeproj">
+      location = "group:application/DeliveryAppChallenge.xcodeproj">
    </FileRef>
 </Workspace>

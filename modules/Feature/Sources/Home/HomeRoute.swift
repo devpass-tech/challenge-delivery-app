@@ -12,7 +12,3 @@ public struct HomeRoute: Route {
         self.source = source
     }
 }
-
-struct HomeBindings {
-    let onSomethingTapped: () -> Void
-}

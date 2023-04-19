@@ -1,7 +1,7 @@
 import UIKit
 import Navigation
-//import Restaurants
 import ServicesInterface
+import Restaurants
 
 public enum HomeStartSource {
     case appStart
@@ -9,21 +9,19 @@ public enum HomeStartSource {
 }
 
 public final class HomeViewController: UIViewController {
-    
-    let deliveryApi: DeliveryAPIProtocol
+    let deliveryApi: DeliveryApiProtocol
     let customView: HomeViewProtocol
     let source: HomeStartSource
-    let onSomeButtonTapped: () -> Void
     
     public init(
         source: HomeStartSource,
         customView: HomeViewProtocol,
-        deliveryApi: DeliveryAPIProtocol,
-        onSomeButtonTapped: @escaping () -> Void
+        deliveryApi: DeliveryApiProtocol
     ) {
         self.customView = customView
         self.deliveryApi = deliveryApi
-        self.onSomeButtonTapped = onSomeButtonTapped
+//        self.onSomeButtonTapped = onSomeButtonTapped
+        self.source = source
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -56,8 +54,30 @@ public final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
-    public func didTapOnRestaurantCell() {
-//        let restaurantDetailsRoute = RestaurantDetailsRoute(presentationStyle: PushPresentationStyle())
-//        try? RouterService.shared.navigate(to: restaurantDetailsRoute, from: self)
+    public func didTapOnRestaurantCell(restaurantName: String, restaurantDescription: String) {
+        let restaurantDetailsRoute = RestaurantDetailsRoute(
+            restaurantName: restaurantName,
+            restaurantDescription: restaurantDescription,
+            delegate: self,
+            onTapSomething: {
+                print("Something was tapped or could anything else")
+            })
+        
+        try? RouterService.shared.navigate(
+            to: restaurantDetailsRoute,
+            from: self,
+            presentationStyle: PushPresentationStyle(),
+            bindings: restaurantDetailsRoute.bindings
+        )
+    }
+}
+
+extension HomeViewController: RestaurantActionsDelegate {
+    public func didFinishLoading() {
+        print("didFinishLoading:")
+    }
+    
+    public func errorOnLoading() {
+        print("errorOnLoading:")
     }
 }

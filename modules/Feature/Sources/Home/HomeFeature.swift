@@ -8,15 +8,11 @@ public struct HomeFeature {
             .registerFactory(
                 factory: { route, bindings in
                     guard
-                        let route = route as? HomeRoute,
-                        let bindings = bindings as? HomeBindings
+                        let route = route as? HomeRoute
                     else {
                         preconditionFailure("Expected HomeRoute")
                     }
-                    return HomeFactory.make(
-                        source: route.source,
-                        onSomeButtonTapped: bindings.onSomethingTapped
-                    )
+                    return HomeFactory.make(source: route.source)
                 },
                 for: HomeRoute.self
             )

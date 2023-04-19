@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157F075A29F08F1200E8F3BE /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = 157F075929F08F1200E8F3BE /* UIFoundations */; };
 		7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B448273334B200CE8273 /* NetworkManagerTests.swift */; };
 		744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */; };
 		74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */; };
@@ -18,7 +19,6 @@
 		983271E0272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DF272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift */; };
 		98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
 		E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4A29E888DE00ADBA23 /* CoreModules */; };
-		E5C23C4D29E888DE00ADBA23 /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4C29E888DE00ADBA23 /* UIFoundations */; };
 		E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */; };
 		F5912B1E273C3E5B00A71644 /* RestaurantListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1D273C3E5B00A71644 /* RestaurantListDataSourceTests.swift */; };
 		F5912B20273C3F9500A71644 /* NetworkManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */; };
@@ -66,8 +66,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */,
+				157F075A29F08F1200E8F3BE /* UIFoundations in Frameworks */,
 				E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */,
-				E5C23C4D29E888DE00ADBA23 /* UIFoundations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +208,8 @@
 			name = DeliveryAppChallenge;
 			packageProductDependencies = (
 				E5C23C4A29E888DE00ADBA23 /* CoreModules */,
-				E5C23C4C29E888DE00ADBA23 /* UIFoundations */,
 				E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */,
+				157F075929F08F1200E8F3BE /* UIFoundations */,
 			);
 			productName = DeliveryAppChallenge;
 			productReference = 983271B9272752AF0010C63A /* DeliveryAppChallenge.app */;
@@ -500,9 +500,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryAppChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -510,14 +511,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,9 +531,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryAppChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -539,14 +542,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,9 +562,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,8 +574,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallengeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryappTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,9 +589,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,8 +601,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallengeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryappTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,9 +615,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,8 +626,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallengeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryappUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,9 +640,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 6BD69EF9D7;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -640,8 +651,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallengeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.deliveryappUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -691,13 +703,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		157F075929F08F1200E8F3BE /* UIFoundations */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIFoundations;
+		};
 		E5C23C4A29E888DE00ADBA23 /* CoreModules */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreModules;
-		};
-		E5C23C4C29E888DE00ADBA23 /* UIFoundations */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UIFoundations;
 		};
 		E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */ = {
 			isa = XCSwiftPackageProductDependency;

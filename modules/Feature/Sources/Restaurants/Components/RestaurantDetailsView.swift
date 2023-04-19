@@ -24,6 +24,10 @@ final class RestaurantDetailsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented yet")
     }
+    
+    func update(from restaurantName: String) {
+        self.headerView.update(from: restaurantName)
+    }
 }
 
 extension RestaurantDetailsView: ViewCode {

@@ -1,8 +1,9 @@
 import UIKit
 import UIFoundations
 
+// TODO: Improve them to a Object
 public protocol HomeViewDelegate: AnyObject {
-    func didTapOnRestaurantCell()
+    func didTapOnRestaurantCell(restaurantName: String, restaurantDescription: String)
 }
 
 public protocol HomeViewProtocol: UIView {
@@ -78,6 +79,9 @@ extension HomeView: UITableViewDataSource {
 
 extension HomeView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didTapOnRestaurantCell()
+        let restaurantName = viewModel.restaurants[indexPath.row]
+
+        delegate?.didTapOnRestaurantCell(restaurantName: restaurantName,
+                                         restaurantDescription: "Dummy")
     }
 }

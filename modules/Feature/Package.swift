@@ -11,44 +11,43 @@ let package = Package(
     products: [
         .library(
             name: "FeaturesPack",
-            targets: ["Home"]//, "Restaurants"]
+            targets: ["Home", "Restaurants"]
         )
     ],
     dependencies: [
         .package(path: "../CoreLibrary"),
-        .package(path: "../UI")
+        .package(path: "../UILibrary"),
     ],
     targets: [
         // Home
         .target(
             name: "Home",
             dependencies: [
-                // Features
-//                .product(name: "Restaurants"),
+                // Feature
+                "Restaurants",
                 // Core
                 .product(name: "Navigation", package: "CoreLibrary"),
                 .product(name: "Services", package: "CoreLibrary"), // ->>> SERÁ?
                 // Interfaces
                 .product(name: "ServicesInterface", package: "CoreLibrary"),
                 // UI
-                .product(name: "UIFoundations", package: "UI"),
+                .product(name: "UIFoundations", package: "UILibrary"),
             ]
         ),
         .testTarget(
             name: "HomeTests",
             dependencies: ["Home"]
         ),
-//        // Restaurants
-//        .target(
-//            name: "Restaurants",
-//            dependencies: [
-//                .product(name: "Navigation", package: "CoreLibrary"),
-//                .product(name: "UIFoundations", package: "UI")
-//            ]
-//        ),
-//        .testTarget(
-//            name: "RestaurantsTests",
-//            dependencies: ["Restaurants"]
-//        ),
+        .target(
+            name: "Restaurants",
+            dependencies: [
+                .product(name: "Navigation", package: "CoreLibrary"),
+                .product(name: "UIFoundations", package: "UILibrary")
+            ]
+        ),
+        .testTarget(
+            name: "RestaurantsTests",
+            dependencies: ["Restaurants"]
+        ),
     ]
 )

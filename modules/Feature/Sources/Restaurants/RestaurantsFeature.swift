@@ -6,9 +6,20 @@ public struct RestaurantFeature {
         try? RouterService
             .shared
             .registerFactory(
-                factory: { _ in
-                    return RestaurantDetailsViewController()
-                }, for: RestaurantDetailsRoute.self
+                factory: { route, bindings in
+                    guard
+                        let route = route as? RestaurantDetailsRoute,
+                        let bindings = bindings as? RestaurantDetailsBindings
+                    else {
+                        preconditionFailure("Expected HomeRoute")
+                    }
+                    return RestaurantDetailsFactory.make(
+                        restaurantName: route.restaurantInputs.name,
+                        restaurantDetails: route.restaurantInputs.description,
+                        delegate: bindings.delegate,
+                        onSomeButtonTapped: bindings.onTapSomething)
+                },
+                for: RestaurantDetailsRoute.self
             )
     }
 }
