@@ -20,7 +20,6 @@ public final class HomeViewController: UIViewController {
     ) {
         self.customView = customView
         self.deliveryApi = deliveryApi
-//        self.onSomeButtonTapped = onSomeButtonTapped
         self.source = source
         super.init(nibName: nil, bundle: nil)
     }

@@ -1,14 +1,7 @@
-//
-//  RestaurantCell.swift
-//  DeliveryAppChallenge
-//
-//  Created by Edson Neto on 04/11/21.
-//
-
 import UIKit
 import UIFoundations
 
-final class RestaurantCell: UITableViewCell{
+final class RestaurantCell: UITableViewCell {
     static let identifier = "RestaurantCellIdentifier"
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -48,6 +41,7 @@ final class RestaurantCell: UITableViewCell{
 
     func setup(_ restaurantName: String) {
         restaurantNameLabel.text = restaurantName
+        restaurantTypeLabel.text = "Padaria - 23-33 min"
     }
 }
 
