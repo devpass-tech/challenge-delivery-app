@@ -1,19 +1,18 @@
 import UIKit
+import ServicesInterface
 
 public final class RestaurantDetailsFactory {
     public static func make(
-        restaurantName: String,
-        restaurantDetails: String,
+        restaurant: Restaurant,
         delegate: RestaurantActionsDelegate?,
+        deliveryClient: DeliveryClientProtocol,
         onSomeButtonTapped: @escaping () -> Void
     ) -> UIViewController {
         let viewModel = RestaurantDetailsViewModel(
-            name: restaurantName,
-            description: restaurantDetails,
+            restaurant: restaurant,
             onTapSomething: onSomeButtonTapped
         )
-        
-        let viewController = RestaurantDetailsViewController(viewModel: viewModel)
+        let viewController = RestaurantDetailsViewController(viewModel: viewModel, deliveryClient: deliveryClient)
         viewController.delegate = delegate
         return viewController
     }

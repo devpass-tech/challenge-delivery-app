@@ -1,8 +1,11 @@
 import UIKit
 import SwiftUI
 import UIFoundations
+import ServicesInterface
 
 public final class RestaurantHeaderView: UIView {
+    
+    private let imageFrame: CGFloat = 60.0
     
     private var restaurantImageView: UIImageView = {
         let imageView = UIImageView()
@@ -59,8 +62,6 @@ public final class RestaurantHeaderView: UIView {
         return stackView
     }()
     
-    private let imageFrame: CGFloat = 60.0
-    
     init() {
         super.init(frame: .zero)
         setup()
@@ -70,10 +71,10 @@ public final class RestaurantHeaderView: UIView {
         fatalError("init(coder:) has not been implemented yet")
     }
     
-    func update(from restaurantName: String) {
-        restaurantLabel.text = restaurantName
-        restaurantTypeLabel.text = "Padaria"
-        restaurantDeliveryTimeLabel.text = "23-33 min"
+    func update(from restaurant: Restaurant) {
+        restaurantLabel.text = restaurant.name
+        restaurantTypeLabel.text = restaurant.category
+        restaurantDeliveryTimeLabel.text = "\(restaurant.deliveryTime.min)-\(restaurant.deliveryTime.max) min"
     }
 }
 

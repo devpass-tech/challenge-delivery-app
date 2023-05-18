@@ -1,9 +1,10 @@
 import UIKit
 import UIFoundations
+import ServicesInterface
 
 // TODO: Improve them to a Object
 public protocol HomeViewDelegate: AnyObject {
-    func didTapOnRestaurantCell(restaurantName: String, restaurantDescription: String)
+    func didTapOnRestaurantCell(restaurant: Restaurant)
 }
 
 public protocol HomeViewProtocol: UIView {
@@ -14,7 +15,7 @@ public protocol HomeViewProtocol: UIView {
 public final class HomeView: UIView {
     
     public struct ViewModel {
-        let restaurants: [String]
+        let restaurants: [Restaurant]
     }
     
     private var viewModel: ViewModel
@@ -79,9 +80,7 @@ extension HomeView: UITableViewDataSource {
 
 extension HomeView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let restaurantName = viewModel.restaurants[indexPath.row]
-
-        delegate?.didTapOnRestaurantCell(restaurantName: restaurantName,
-                                         restaurantDescription: "Dummy")
+        let restaurant = viewModel.restaurants[indexPath.row]
+        delegate?.didTapOnRestaurantCell(restaurant: restaurant)
     }
 }

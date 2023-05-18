@@ -9,17 +9,17 @@ public enum HomeStartSource {
 }
 
 public final class HomeViewController: UIViewController {
-    let deliveryApi: DeliveryApiProtocol
+    let deliveryClient: DeliveryClientProtocol
     let customView: HomeViewProtocol
     let source: HomeStartSource
     
     public init(
         source: HomeStartSource,
         customView: HomeViewProtocol,
-        deliveryApi: DeliveryApiProtocol
+        deliveryClient: DeliveryClientProtocol
     ) {
         self.customView = customView
-        self.deliveryApi = deliveryApi
+        self.deliveryClient = deliveryClient
         self.source = source
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,9 +43,9 @@ public final class HomeViewController: UIViewController {
     }
     
     func fetchRestaurants() {
-        deliveryApi.fetchRestaurants { [weak self] restaurants in
+        deliveryClient.fetchRestaurant { [weak self] restaurants in
             DispatchQueue.main.async {
-                guard let self = self else {return}
+                guard let self = self else { return }
                 self.customView.displayRestaurants(.init(restaurants: restaurants))
             }
         }
@@ -53,10 +53,10 @@ public final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
-    public func didTapOnRestaurantCell(restaurantName: String, restaurantDescription: String) {
+    public func didTapOnRestaurantCell(restaurant: Restaurant) {
         let restaurantDetailsRoute = RestaurantDetailsRoute(
-            restaurantName: restaurantName,
-            restaurantDescription: restaurantDescription,
+            restaurant: restaurant,
+            deliveryClient: deliveryClient,
             delegate: self,
             onTapSomething: {
                 print("Something was tapped or could anything else")

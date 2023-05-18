@@ -1,23 +1,25 @@
 import Navigation
 import UIKit
 import Foundation
+import ServicesInterface
 
 public struct RestaurantDetailsViewModel {
-    let name: String
-    let description: String
+    let restaurant: Restaurant
     let onTapSomething: () -> Void
 }
 
 public final class RestaurantDetailsViewController: UIViewController {
     public weak var delegate: RestaurantActionsDelegate?
     private let viewModel: RestaurantDetailsViewModel
+    private let deliveryClient: DeliveryClientProtocol
 
     private var detailView: RestaurantDetailsView = {
         RestaurantDetailsView()
     }()
     
-    init(viewModel: RestaurantDetailsViewModel) {
+    init(viewModel: RestaurantDetailsViewModel, deliveryClient: DeliveryClientProtocol) {
         self.viewModel = viewModel
+        self.deliveryClient = deliveryClient
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .white
     }
@@ -32,9 +34,15 @@ public final class RestaurantDetailsViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        detailView.update(from: viewModel.name)
         detailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:))))
-        simulateLoading()
+        callRestaurantDetail()
+    }
+    
+    private func callRestaurantDetail() {
+        deliveryClient.fetchRestaurantDetail(restaurantName: viewModel.restaurant.name) { [weak self] detail in
+            guard let restaurantModel = self?.viewModel.restaurant, let restaurantDetail = detail else { return }
+            self?.detailView.update(from: restaurantModel, restaurantDetail: restaurantDetail)
+        }
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {

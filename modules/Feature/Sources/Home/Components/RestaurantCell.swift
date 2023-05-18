@@ -1,5 +1,6 @@
 import UIKit
 import UIFoundations
+import ServicesInterface
 
 final class RestaurantCell: UITableViewCell {
     static let identifier = "RestaurantCellIdentifier"
@@ -39,9 +40,9 @@ final class RestaurantCell: UITableViewCell {
         return label
     }()
 
-    func setup(_ restaurantName: String) {
-        restaurantNameLabel.text = restaurantName
-        restaurantTypeLabel.text = "Padaria - 23-33 min"
+    func setup(_ restaurant: Restaurant) {
+        restaurantNameLabel.text = restaurant.name
+        restaurantTypeLabel.text = "\(restaurant.category) - \(restaurant.deliveryTime.min)-\(restaurant.deliveryTime.max) min"
     }
 }
 

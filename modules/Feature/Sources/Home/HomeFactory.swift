@@ -8,11 +8,11 @@ public final class HomeFactory {
         source: HomeStartSource
     ) -> UIViewController {
         let customView = HomeView()
-        let deliveryAPI = DeliveryApi()
+        let deliveryClient = DeliveryClient()
         let viewController = HomeViewController(
             source: source,
             customView: customView,
-            deliveryApi: deliveryAPI
+            deliveryClient: deliveryClient
         )
         customView.delegate = viewController
         return viewController

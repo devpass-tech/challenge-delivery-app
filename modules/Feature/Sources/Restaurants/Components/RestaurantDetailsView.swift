@@ -1,8 +1,11 @@
 import UIKit
 import UIFoundations
+import ServicesInterface
 
 final class RestaurantDetailsView: UIView {
     private let rowHeight: CGFloat = 100.0
+    
+    private var restaurantDetails: RestaurantDetail?
     
     private var contentStackView: UIStackView = {
         let stackView = UIStackView()
@@ -42,9 +45,10 @@ final class RestaurantDetailsView: UIView {
         fatalError("init(coder:) has not been implemented yet")
     }
     
-    func update(from restaurantName: String) {
-        headerView.update(from: restaurantName)
-        valuationView.update(with: 4.8, and: 351)
+    func update(from restaurant: Restaurant, restaurantDetail: RestaurantDetail) {
+        self.restaurantDetails = restaurantDetail
+        headerView.update(from: restaurant)
+        valuationView.update(with: restaurantDetail.reviews.score, and: restaurantDetail.reviews.count)
         restaurantMenuTableView.reloadData()
     }
 }
@@ -72,7 +76,7 @@ extension RestaurantDetailsView: ViewCode {
 
 extension RestaurantDetailsView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        restaurantDetails?.grouppedCategories.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

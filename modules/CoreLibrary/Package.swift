@@ -19,7 +19,7 @@ let package = Package(
             targets: ["Navigation"]
         ),
         .library(
-            name: "Services", // remove?
+            name: "Services",
             targets: ["Services"]
         ),
         .library(
@@ -57,8 +57,10 @@ let package = Package(
         ),
         .target(
             name: "Services",
-            dependencies: [
-                "ServicesInterface"
+            dependencies: ["ServicesInterface"],
+            resources: [
+                .process("Resources/home_restaurant_list.json"),
+                .process("Resources/restaurant_details.json")
             ]
         ),
         .testTarget(
