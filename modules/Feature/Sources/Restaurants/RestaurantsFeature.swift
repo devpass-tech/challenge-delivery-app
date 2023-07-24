@@ -14,10 +14,11 @@ public struct RestaurantFeature {
                         preconditionFailure("Expected HomeRoute")
                     }
                     return RestaurantDetailsFactory.make(
-                        restaurantName: route.restaurantInputs.name,
-                        restaurantDetails: route.restaurantInputs.description,
+                        restaurant: route.restaurantInputs.restaurant,
                         delegate: bindings.delegate,
-                        onSomeButtonTapped: bindings.onTapSomething)
+                        deliveryClient: bindings.deliveryClient, // Think about this!
+                        onSomeButtonTapped: bindings.onTapSomething
+                    )
                 },
                 for: RestaurantDetailsRoute.self
             )

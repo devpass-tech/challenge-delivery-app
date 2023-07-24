@@ -1,14 +1,8 @@
-//
-//  RestaurantCell.swift
-//  DeliveryAppChallenge
-//
-//  Created by Edson Neto on 04/11/21.
-//
-
 import UIKit
 import UIFoundations
+import ServicesInterface
 
-final class RestaurantCell: UITableViewCell{
+final class RestaurantCell: UITableViewCell {
     static let identifier = "RestaurantCellIdentifier"
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -46,8 +40,9 @@ final class RestaurantCell: UITableViewCell{
         return label
     }()
 
-    func setup(_ restaurantName: String) {
-        restaurantNameLabel.text = restaurantName
+    func setup(_ restaurant: Restaurant) {
+        restaurantNameLabel.text = restaurant.name
+        restaurantTypeLabel.text = "\(restaurant.category) - \(restaurant.deliveryTime.min)-\(restaurant.deliveryTime.max) min"
     }
 }
 

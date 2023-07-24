@@ -1,5 +1,6 @@
 import Foundation
 import Navigation
+import ServicesInterface
 
 public struct RestaurantDetailsRoute: Route {
     public static var identifier: RouterIdentifier {
@@ -10,17 +11,15 @@ public struct RestaurantDetailsRoute: Route {
     public let bindings: RestaurantDetailsBindings
 
     public init(
-        restaurantName: String,
-        restaurantDescription: String,
+        restaurant: Restaurant,
+        deliveryClient: DeliveryClientProtocol,
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void
     ) {
-        self.restaurantInputs = RestaurantDetailsInputs(
-            name: restaurantName,
-            description: restaurantDescription
-        )
+        self.restaurantInputs = RestaurantDetailsInputs(restaurant: restaurant)
         
         self.bindings = RestaurantDetailsBindings(
+            deliveryClient: deliveryClient,
             delegate: delegate,
             onTapSomething: onTapSomething
         )
@@ -28,18 +27,20 @@ public struct RestaurantDetailsRoute: Route {
 }
 
 public struct RestaurantDetailsInputs {
-    public let name: String
-    public let description: String
+    public let restaurant: Restaurant
 }
 
 public struct RestaurantDetailsBindings {
     public let onTapSomething: () -> Void
+    public let deliveryClient: DeliveryClientProtocol
     public let delegate: RestaurantActionsDelegate?
     
     public init(
+        deliveryClient: DeliveryClientProtocol,
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void
     ) {
+        self.deliveryClient = deliveryClient
         self.delegate = delegate
         self.onTapSomething = onTapSomething
     }
