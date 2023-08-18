@@ -6,13 +6,13 @@ import PackageDescription
 let package = Package(
     name: "Feature",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
     ],
     products: [
         .library(
             name: "FeaturesPack",
             targets: ["Home", "Restaurants"]
-        )
+        ),
     ],
     dependencies: [
         .package(path: "../CoreLibrary"),
@@ -42,7 +42,7 @@ let package = Package(
             name: "RestaurantsInterface",
             dependencies: [
                 .product(name: "Navigation", package: "CoreLibrary"),
-                .product(name: "DependencyInjection", package: "CoreLibrary")
+                .product(name: "DependencyInjection", package: "CoreLibrary"),
             ]
         ),
         .target(

@@ -3,6 +3,7 @@ import Foundation
 struct Environment {
     var globalServiceLocator: ServiceLocatorInterface
 }
+
 var environment: Environment?
 
 func getEnvironment(

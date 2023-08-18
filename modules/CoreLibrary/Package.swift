@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CoreLibrary",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -20,7 +20,7 @@ let package = Package(
                 "Services",
                 // Interfaces
                 "NetworkingInterface",
-                "ServicesInterface"
+                "ServicesInterface",
             ]
         ),
         // Essentials
@@ -69,7 +69,7 @@ let package = Package(
         .target(
             name: "Networking",
             dependencies: [
-                "NetworkingInterface"
+                "NetworkingInterface",
             ]
         ),
         .testTarget(
@@ -85,16 +85,16 @@ let package = Package(
             name: "Services",
             dependencies: [
                 "ServicesInterface",
-                "NetworkingInterface"
+                "NetworkingInterface",
             ],
             resources: [
                 .process("Resources/home_restaurant_list.json"),
-                .process("Resources/restaurant_details.json")
+                .process("Resources/restaurant_details.json"),
             ]
         ),
         .testTarget(
             name: "ServicesTests",
             dependencies: ["Services"]
-        )
+        ),
     ]
 )

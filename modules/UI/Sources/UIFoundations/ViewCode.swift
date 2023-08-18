@@ -13,6 +13,6 @@ public extension ViewCode {
         setupConstraints()
         setupExtraConfiguration()
     }
-    
+
     func setupExtraConfiguration() {}
 }

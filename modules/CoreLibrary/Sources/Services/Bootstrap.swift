@@ -1,14 +1,11 @@
-import ServicesInterface
 import DependencyInjection
+import ServicesInterface
 
 public func bootstrap() {
-//    let container = container ?? ServiceLocator.shared
-//    container.register(
-//        factory: { resolver in
-//            DeliveryClient(
-//                networkManager: resolver.autoResolveUnsafe()
-//            )
-//        },
-//        forMetaType: DeliveryClientProtocol.self
-//    )
+    DependencyInjection.register(
+        factory: { _ in
+            DeliveryClient()
+        },
+        forMetaType: DeliveryClientProtocol.self
+    )
 }

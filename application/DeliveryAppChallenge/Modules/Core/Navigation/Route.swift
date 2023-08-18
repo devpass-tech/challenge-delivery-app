@@ -11,6 +11,7 @@ import UIKit
 typealias RouterIdentifier = String
 
 // MARK: Markable type
+
 protocol PresentationStyle {}
 
 protocol Route {

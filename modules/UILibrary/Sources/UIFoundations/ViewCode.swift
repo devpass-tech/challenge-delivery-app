@@ -7,11 +7,12 @@ public protocol ViewCode {
     func setupExtraConfiguration()
 }
 
-extension ViewCode {
-    public func setup() {
+public extension ViewCode {
+    func setup() {
         setupComponents()
         setupConstraints()
         setupExtraConfiguration()
     }
-    public func setupExtraConfiguration() {}
+
+    func setupExtraConfiguration() {}
 }

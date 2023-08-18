@@ -30,7 +30,7 @@ protocol SceneRegisteringProtocol {
 }
 
 final class RouterService: NavigatorProtocol, SceneRegisteringProtocol {
-    private var factories: [RouterIdentifier : SceneFactory] = [:]
+    private var factories: [RouterIdentifier: SceneFactory] = [:]
     static let shared = RouterService()
 
     func navigate(to route: Route, from: UIViewController) throws {
@@ -66,7 +66,6 @@ final class RouterService: NavigatorProtocol, SceneRegisteringProtocol {
     }
 
     func registerFactory(factory: @escaping SceneFactory, for route: Route.Type) throws {
-
         guard factories[route.identifier] == nil else {
             throw SceneRegistrationFailure.alreadyExist
         }

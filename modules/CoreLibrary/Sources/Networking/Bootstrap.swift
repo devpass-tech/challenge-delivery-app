@@ -5,6 +5,7 @@ import NetworkingInterface
 struct Environment {
     let baseURL: URL
 }
+
 var environment: Environment?
 
 func getEnvironment(

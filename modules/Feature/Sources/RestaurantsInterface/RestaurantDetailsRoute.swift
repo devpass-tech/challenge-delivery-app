@@ -6,7 +6,7 @@ public struct RestaurantDetailsRoute: Route {
     public static var identifier: RouterIdentifier {
         "RestaurantDetails"
     }
-    
+
     public let restaurantInputs: RestaurantDetailsInputs
     public let bindings: RestaurantDetailsBindings
 
@@ -15,9 +15,9 @@ public struct RestaurantDetailsRoute: Route {
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void
     ) {
-        self.restaurantInputs = RestaurantDetailsInputs(restaurant: restaurant)
-        
-        self.bindings = RestaurantDetailsBindings(
+        restaurantInputs = RestaurantDetailsInputs(restaurant: restaurant)
+
+        bindings = RestaurantDetailsBindings(
             delegate: delegate,
             onTapSomething: onTapSomething
         )
@@ -31,7 +31,7 @@ public struct RestaurantDetailsInputs {
 public struct RestaurantDetailsBindings {
     public let onTapSomething: () -> Void
     public let delegate: RestaurantActionsDelegate?
-    
+
     public init(
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void

@@ -3,20 +3,20 @@ import Foundation
 @propertyWrapper
 public final class Resolved<T> {
     // MARK: - Dependencies
-    
+
     private let resolver: Resolver?
     private let failureHandler: (String) -> Void
     private(set) var resolvedValue: T!
 
     // MARK: - Properties
-    
+
     public var wrappedValue: T {
         resolveIfNeeded()
         return resolvedValue!
     }
 
     // MARK: - Initialization
-    
+
     public convenience init() {
         self.init(
             resolvedValue: nil,
@@ -36,7 +36,7 @@ public final class Resolved<T> {
     }
 
     // MARK: - Private Functions
-    
+
     private func resolveIfNeeded() {
         guard resolvedValue == nil else {
             failureHandler("\(type(of: self)) shouldn't be resolved twice!")
@@ -51,13 +51,13 @@ public final class Resolved<T> {
 }
 
 #if DEBUG
-extension Resolved {
-    public convenience init(resolvedValue: T) {
-        self.init(
-            resolvedValue: resolvedValue,
-            resolver: nil,
-            failureHandler: { _ in }
-        )
+    public extension Resolved {
+        convenience init(resolvedValue: T) {
+            self.init(
+                resolvedValue: resolvedValue,
+                resolver: nil,
+                failureHandler: { _ in }
+            )
+        }
     }
-}
 #endif

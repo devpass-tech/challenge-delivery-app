@@ -5,11 +5,11 @@
 ////  Created by Bruna Fernanda Drago on 10/11/21.
 ////
 //
-//import Foundation
-//import XCTest
-//@testable import DeliveryAppChallenge
+// import Foundation
+// import XCTest
+// @testable import DeliveryAppChallenge
 //
-//class RestaurantListDataSourceTests: XCTestCase {
+// class RestaurantListDataSourceTests: XCTestCase {
 //
 //    private let networkManagerStub = NetworkManagerProtocolStub()
 //
@@ -57,7 +57,7 @@
 //        let networkError = try XCTUnwrap(error as? NetworkingError)
 //        XCTAssertEqual(networkError, .networkError)
 //    }
-//}
+// }
 //
 //
 //

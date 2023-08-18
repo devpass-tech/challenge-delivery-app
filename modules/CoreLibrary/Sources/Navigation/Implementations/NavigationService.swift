@@ -3,8 +3,8 @@ import UIKit
 
 public typealias NavigationService = AppNavigator & SceneRegistration
 final class NavigationServiceImplementation: NavigationService {
-    private(set) var factories: [RouterIdentifier : SceneFactory] = [:]
-    
+    private(set) var factories: [RouterIdentifier: SceneFactory] = [:]
+
     init() {}
 
     func navigate<Bindings>(
@@ -35,7 +35,7 @@ final class NavigationServiceImplementation: NavigationService {
             throw AppNavigationFailure.invalidPresentationStyle
         }
     }
-    
+
     func controller(for route: Route) throws -> UIViewController {
         try mapRouteToController(route, bindings: nil)
     }
@@ -49,7 +49,6 @@ final class NavigationServiceImplementation: NavigationService {
     }
 
     func registerFactory(factory: @escaping SceneFactory, for route: Route.Type) throws {
-
         guard factories[route.identifier] == nil else {
             throw SceneRegistrationFailure.alreadyExist
         }

@@ -11,7 +11,7 @@ extension String {
             return nil
         }
     }
-    
+
     func loadJson<T: Decodable>() -> T? {
         guard let dataFromFile = getDataFromFilename(self) else { return nil }
         do {
@@ -22,7 +22,7 @@ extension String {
             return nil
         }
     }
-    
+
     private func getDataFromFilename(_ fileName: String) -> Data? {
         if let url = Bundle.module.url(forResource: fileName, withExtension: "json") {
             do {

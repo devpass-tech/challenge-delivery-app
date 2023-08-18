@@ -1,17 +1,16 @@
-import UIKit
+import DependencyInjection
+import Home
 import Navigation
 import Networking
-import Services
-import Home
 import Restaurants
-import DependencyInjection
+import Services
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     @Resolved var navigationService: NavigationService
     var window: UIWindow?
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+    func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         registerCores()
         registerFeatures()
 
@@ -20,15 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let windowScene = (scene as? UIWindowScene),
             let rootViewController = try? navigationService.controller(for: homeRoute)
         else { return }
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.prefersLargeTitles = true
-        self.window?.rootViewController = navigationController
-        self.window?.windowScene = windowScene
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = navigationController
+        window?.windowScene = windowScene
+        window?.makeKeyAndVisible()
     }
-    
+
     private func registerCores() {
         DependencyInjection.bootstrap()
         Navigation.bootstrap()
@@ -37,10 +36,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         Services.bootstrap()
     }
-    
+
     private func registerFeatures() {
         HomeFeature.bootstrap()
         RestaurantFeature.bootstrap()
     }
 }
-

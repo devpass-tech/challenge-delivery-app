@@ -4,9 +4,10 @@ public protocol Resolver {
     func resolve<T>(_ metaType: T.Type) -> T?
     func autoResolve<T>() -> T?
 }
-extension Resolver {
-    public func resolveUnsafe<T>(
-        _ metaType: T.Type,
+
+public extension Resolver {
+    func resolveUnsafe<T>(
+        _: T.Type,
         file: StaticString = #file,
         line: UInt = #line
     ) -> T {
@@ -19,8 +20,8 @@ extension Resolver {
         }
         return instance
     }
-    
-    public func autoResolveUnsafe<T>(
+
+    func autoResolveUnsafe<T>(
         file: StaticString = #file,
         line: UInt = #line
     ) -> T {

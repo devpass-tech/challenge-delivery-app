@@ -7,12 +7,13 @@ public protocol Container {
         forMetaType metaType: T.Type
     )
 }
+
 extension Container {
     func register<T>(
         factory: @escaping () -> T,
         forMetaType metaType: T.Type
     ) {
-        self.register(
+        register(
             factory: { _ in factory() },
             forMetaType: metaType
         )

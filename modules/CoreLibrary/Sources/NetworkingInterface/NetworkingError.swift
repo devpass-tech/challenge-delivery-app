@@ -6,7 +6,7 @@ public enum NetworkingError: Error, LocalizedError {
     case invalidURL
     case invalidStatusCode
     case networkError
-    
+
     public var errorDescription: String? {
         switch self {
         case .decodeError:

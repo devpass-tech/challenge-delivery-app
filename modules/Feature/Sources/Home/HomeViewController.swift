@@ -1,7 +1,7 @@
-import UIKit
 import Navigation
-import ServicesInterface
 import RestaurantsInterface
+import ServicesInterface
+import UIKit
 
 public enum HomeStartSource {
     case appStart
@@ -13,10 +13,11 @@ final class HomeViewController: UIViewController {
         var appNavigator: AppNavigator
         var deliveryClient: DeliveryClientProtocol
     }
+
     let dependencies: Dependencies
     let customView: HomeViewProtocol
     let source: HomeStartSource
-    
+
     public init(
         source: HomeStartSource,
         customView: HomeViewProtocol,
@@ -27,25 +28,26 @@ final class HomeViewController: UIViewController {
         self.dependencies = dependencies
         super.init(nibName: nil, bundle: nil)
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public override func loadView() {
+
+    override public func loadView() {
         view = customView
     }
-    
-    public override func viewDidLoad() {
+
+    override public func viewDidLoad() {
         super.viewDidLoad()
         title = "Delivery App"
         customView.delegate = self
     }
-    
-    public override func viewDidAppear(_ animated: Bool) {
+
+    override public func viewDidAppear(_: Bool) {
         fetchRestaurants()
     }
-    
+
     func fetchRestaurants() {
         dependencies.deliveryClient.fetchRestaurant { [weak self] restaurants in
             DispatchQueue.main.async {
@@ -63,8 +65,9 @@ extension HomeViewController: HomeViewDelegate {
             delegate: self,
             onTapSomething: {
                 print("Something was tapped or could anything else")
-            })
-        
+            }
+        )
+
         try? dependencies.appNavigator.navigate(
             to: restaurantDetailsRoute,
             from: self,
@@ -78,7 +81,7 @@ extension HomeViewController: RestaurantActionsDelegate {
     public func didFinishLoading() {
         print("didFinishLoading:")
     }
-    
+
     public func errorOnLoading() {
         print("errorOnLoading:")
     }

@@ -6,20 +6,23 @@ import PackageDescription
 let package = Package(
     name: "UILibrary",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
     ],
     products: [
         .library(
             name: "UIFoundations",
-            targets: ["UIFoundations"]),
+            targets: ["UIFoundations"]
+        ),
     ],
     dependencies: [],
     targets: [
         .target(
             name: "UIFoundations",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "UIFoundationsTests",
-            dependencies: ["UIFoundations"]),
+            dependencies: ["UIFoundations"]
+        ),
     ]
 )

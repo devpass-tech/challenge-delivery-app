@@ -16,7 +16,6 @@ enum NetworkingError: Error {
 }
 
 extension NetworkingError: LocalizedError {
-    
     var errorDescription: String? {
         switch self {
         case .decodeError:

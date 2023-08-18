@@ -1,12 +1,12 @@
-import UIKit
-import UIFoundations
 import ServicesInterface
+import UIFoundations
+import UIKit
 
 final class RestaurantDetailsView: UIView {
     private let rowHeight: CGFloat = 100.0
-    
+
     private var restaurantDetails: RestaurantDetail?
-    
+
     private var contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -15,15 +15,11 @@ final class RestaurantDetailsView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
-    private var headerView: RestaurantHeaderView = {
-       return RestaurantHeaderView()
-    }()
-    
-    private var valuationView: RestaurantValuationView = {
-        return RestaurantValuationView()
-    }()
-    
+
+    private var headerView: RestaurantHeaderView = .init()
+
+    private var valuationView: RestaurantValuationView = .init()
+
     private lazy var restaurantMenuTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -35,18 +31,19 @@ final class RestaurantDetailsView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
+
     init() {
         super.init(frame: .zero)
         setup()
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented yet")
     }
-    
+
     func update(from restaurant: Restaurant, restaurantDetail: RestaurantDetail) {
-        self.restaurantDetails = restaurantDetail
+        restaurantDetails = restaurantDetail
         headerView.update(from: restaurant)
         valuationView.update(with: restaurantDetail.reviews.score, and: restaurantDetail.reviews.count)
         restaurantMenuTableView.reloadData()
@@ -60,7 +57,7 @@ extension RestaurantDetailsView: ViewCode {
         contentStackView.addArrangedSubview(headerView)
         contentStackView.addArrangedSubview(valuationView)
     }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: topAnchor, constant: 100.0),
@@ -69,38 +66,39 @@ extension RestaurantDetailsView: ViewCode {
             restaurantMenuTableView.topAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: 20.0),
             restaurantMenuTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             restaurantMenuTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            restaurantMenuTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            restaurantMenuTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
 
 extension RestaurantDetailsView: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         restaurantDetails?.grouppedCategories.count ?? 0
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         4
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         rowHeight
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RestaurantHeaderCell.identifier) as? RestaurantHeaderCell else {
             return UIView()
         }
         headerView.update(with: "Café da manhã")
         return headerView
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantMenuCell.identifier,
-                                                       for: indexPath) as? RestaurantMenuCell else {
+                                                       for: indexPath) as? RestaurantMenuCell
+        else {
             return UITableViewCell()
         }
-        
+
         cell.update(with: "Copo pão de queijo + Suco de Laranja", price: 20.0)
         return cell
     }

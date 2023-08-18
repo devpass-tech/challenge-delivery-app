@@ -14,15 +14,16 @@ public protocol AppNavigator {
         presentationStyle: PresentationStyle,
         bindings: Bindings?
     ) throws
-    
+
     func controller(for route: Route) throws -> UIViewController
 }
+
 public extension AppNavigator {
     func navigate(
         to route: Route,
         from controller: UIViewController,
         presentationStyle: PresentationStyle
     ) {
-        try? self.navigate(to: route, from: controller, presentationStyle: presentationStyle, bindings: ())
+        try? navigate(to: route, from: controller, presentationStyle: presentationStyle, bindings: ())
     }
 }

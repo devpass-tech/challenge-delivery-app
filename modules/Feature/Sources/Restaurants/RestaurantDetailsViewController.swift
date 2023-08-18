@@ -1,8 +1,8 @@
-import Navigation
-import UIKit
 import Foundation
-import ServicesInterface
+import Navigation
 import RestaurantsInterface
+import ServicesInterface
+import UIKit
 
 public struct RestaurantDetailsViewModel {
     let restaurant: Restaurant
@@ -14,39 +14,38 @@ public final class RestaurantDetailsViewController: UIViewController {
     private let viewModel: RestaurantDetailsViewModel
     private let deliveryClient: DeliveryClientProtocol
 
-    private var detailView: RestaurantDetailsView = {
-        RestaurantDetailsView()
-    }()
-    
+    private var detailView: RestaurantDetailsView = .init()
+
     init(viewModel: RestaurantDetailsViewModel, deliveryClient: DeliveryClientProtocol) {
         self.viewModel = viewModel
         self.deliveryClient = deliveryClient
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .white
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public override func loadView() {
+
+    override public func loadView() {
         view = detailView
     }
-    
-    public override func viewDidLoad() {
+
+    override public func viewDidLoad() {
         super.viewDidLoad()
-        detailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:))))
+        detailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
         callRestaurantDetail()
     }
-    
+
     private func callRestaurantDetail() {
         deliveryClient.fetchRestaurantDetail(restaurantName: viewModel.restaurant.name) { [weak self] detail in
             guard let restaurantModel = self?.viewModel.restaurant, let restaurantDetail = detail else { return }
             self?.detailView.update(from: restaurantModel, restaurantDetail: restaurantDetail)
         }
     }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+
+    @objc func handleTap(_: UITapGestureRecognizer) {
         viewModel.onTapSomething()
     }
 }
