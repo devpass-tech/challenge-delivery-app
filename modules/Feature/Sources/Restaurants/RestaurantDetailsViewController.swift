@@ -2,6 +2,7 @@ import Navigation
 import UIKit
 import Foundation
 import ServicesInterface
+import RestaurantsInterface
 
 public struct RestaurantDetailsViewModel {
     let restaurant: Restaurant

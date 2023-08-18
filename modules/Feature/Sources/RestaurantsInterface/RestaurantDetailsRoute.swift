@@ -12,14 +12,12 @@ public struct RestaurantDetailsRoute: Route {
 
     public init(
         restaurant: Restaurant,
-        deliveryClient: DeliveryClientProtocol,
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void
     ) {
         self.restaurantInputs = RestaurantDetailsInputs(restaurant: restaurant)
         
         self.bindings = RestaurantDetailsBindings(
-            deliveryClient: deliveryClient,
             delegate: delegate,
             onTapSomething: onTapSomething
         )
@@ -32,15 +30,12 @@ public struct RestaurantDetailsInputs {
 
 public struct RestaurantDetailsBindings {
     public let onTapSomething: () -> Void
-    public let deliveryClient: DeliveryClientProtocol
     public let delegate: RestaurantActionsDelegate?
     
     public init(
-        deliveryClient: DeliveryClientProtocol,
         delegate: RestaurantActionsDelegate?,
         onTapSomething: @escaping () -> Void
     ) {
-        self.deliveryClient = deliveryClient
         self.delegate = delegate
         self.onTapSomething = onTapSomething
     }

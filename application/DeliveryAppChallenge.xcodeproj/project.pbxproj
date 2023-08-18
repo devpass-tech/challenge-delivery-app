@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		157F075A29F08F1200E8F3BE /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = 157F075929F08F1200E8F3BE /* UIFoundations */; };
 		7415B449273334B200CE8273 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415B448273334B200CE8273 /* NetworkManagerTests.swift */; };
 		744714F72735D71100FA3052 /* URLSessionProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744714F62735D71100FA3052 /* URLSessionProtocolStub.swift */; };
 		74E4A5AF273999AD007FA4DB /* NetworkManagerMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4A5AD2739998D007FA4DB /* NetworkManagerMocks.swift */; };
@@ -18,8 +17,9 @@
 		983271DE272752B50010C63A /* DeliveryAppChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DD272752B50010C63A /* DeliveryAppChallengeUITests.swift */; };
 		983271E0272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271DF272752B50010C63A /* DeliveryAppChallengeUITestsLaunchTests.swift */; };
 		98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
-		E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4A29E888DE00ADBA23 /* CoreModules */; };
-		E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */ = {isa = PBXBuildFile; productRef = E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */; };
+		E596465C2A8F94900022D8AE /* FeaturesPack in Frameworks */ = {isa = PBXBuildFile; productRef = E596465B2A8F94900022D8AE /* FeaturesPack */; };
+		E596465E2A8F94900022D8AE /* UIFoundations in Frameworks */ = {isa = PBXBuildFile; productRef = E596465D2A8F94900022D8AE /* UIFoundations */; };
+		E59646602A8F94E20022D8AE /* CoreModules in Frameworks */ = {isa = PBXBuildFile; productRef = E596465F2A8F94E20022D8AE /* CoreModules */; };
 		F5912B1E273C3E5B00A71644 /* RestaurantListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1D273C3E5B00A71644 /* RestaurantListDataSourceTests.swift */; };
 		F5912B20273C3F9500A71644 /* NetworkManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5912B1F273C3F9500A71644 /* NetworkManagerStub.swift */; };
 /* End PBXBuildFile section */
@@ -65,9 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C23C4B29E888DE00ADBA23 /* CoreModules in Frameworks */,
-				157F075A29F08F1200E8F3BE /* UIFoundations in Frameworks */,
-				E5C23C4F29E88AAB00ADBA23 /* FeaturesPack in Frameworks */,
+				E596465C2A8F94900022D8AE /* FeaturesPack in Frameworks */,
+				E59646602A8F94E20022D8AE /* CoreModules in Frameworks */,
+				E596465E2A8F94900022D8AE /* UIFoundations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +207,9 @@
 			);
 			name = DeliveryAppChallenge;
 			packageProductDependencies = (
-				E5C23C4A29E888DE00ADBA23 /* CoreModules */,
-				E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */,
-				157F075929F08F1200E8F3BE /* UIFoundations */,
+				E596465B2A8F94900022D8AE /* FeaturesPack */,
+				E596465D2A8F94900022D8AE /* UIFoundations */,
+				E596465F2A8F94E20022D8AE /* CoreModules */,
 			);
 			productName = DeliveryAppChallenge;
 			productReference = 983271B9272752AF0010C63A /* DeliveryAppChallenge.app */;
@@ -703,17 +703,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		157F075929F08F1200E8F3BE /* UIFoundations */ = {
+		E596465B2A8F94900022D8AE /* FeaturesPack */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeaturesPack;
+		};
+		E596465D2A8F94900022D8AE /* UIFoundations */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIFoundations;
 		};
-		E5C23C4A29E888DE00ADBA23 /* CoreModules */ = {
+		E596465F2A8F94E20022D8AE /* CoreModules */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreModules;
-		};
-		E5C23C4E29E88AAB00ADBA23 /* FeaturesPack */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FeaturesPack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

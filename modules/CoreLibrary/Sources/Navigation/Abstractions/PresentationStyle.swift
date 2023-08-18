@@ -1,13 +1,7 @@
 import Foundation
 import UIKit
 
-public typealias RouterIdentifier = String
-
 public protocol PresentationStyle {}
-
-public protocol Route {
-    static var identifier: RouterIdentifier { get }
-}
 
 public struct PushPresentationStyle: PresentationStyle {
     let animated: Bool

@@ -1,13 +1,12 @@
 import Foundation
 import ServicesInterface
-import Networking
+import NetworkingInterface
+import DependencyInjection
 
 public struct DeliveryClient: DeliveryClientProtocol {
-    private let networkManager: NetworkManagerProtocol
+    @Resolved var networkManager: NetworkManagerProtocol
     
-    public init(networkManager: NetworkManagerProtocol = NetworkManager()) {
-        self.networkManager = networkManager
-    }
+    public init() {}
     
     public func fetchRestaurant(_ completion: @escaping ([Restaurant]) -> Void) {
         completion(Restaurant.fixture)

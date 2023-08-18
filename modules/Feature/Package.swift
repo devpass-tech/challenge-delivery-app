@@ -24,10 +24,10 @@ let package = Package(
             name: "Home",
             dependencies: [
                 // Feature
-                "Restaurants",
+                "RestaurantsInterface",
                 // Core
                 .product(name: "Navigation", package: "CoreLibrary"),
-                .product(name: "Services", package: "CoreLibrary"), // ->>> SERÁ?
+                .product(name: "DependencyInjection", package: "CoreLibrary"),
                 // Interfaces
                 .product(name: "ServicesInterface", package: "CoreLibrary"),
                 // UI
@@ -39,10 +39,17 @@ let package = Package(
             dependencies: ["Home"]
         ),
         .target(
-            name: "Restaurants",
+            name: "RestaurantsInterface",
             dependencies: [
                 .product(name: "Navigation", package: "CoreLibrary"),
-                .product(name: "UIFoundations", package: "UILibrary")
+                .product(name: "DependencyInjection", package: "CoreLibrary")
+            ]
+        ),
+        .target(
+            name: "Restaurants",
+            dependencies: [
+                "RestaurantsInterface",
+                .product(name: "UIFoundations", package: "UILibrary"),
             ]
         ),
         .testTarget(

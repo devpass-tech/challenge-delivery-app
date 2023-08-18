@@ -1,11 +1,19 @@
+import DependencyInjection
 import Foundation
 import Navigation
+import ServicesInterface
+import RestaurantsInterface
 
 public struct RestaurantFeature {
+    struct Dependencies {
+        @Resolved var navigationService: NavigationService
+        @Resolved var deliveryClient: DeliveryClientProtocol
+    }
+    static var dependencies: Dependencies = .init()
+    
     public static func bootstrap() {
-        try? RouterService
-            .shared
-            .registerFactory(
+        let navigationService = dependencies.navigationService
+        try? navigationService.registerFactory(
                 factory: { route, bindings in
                     guard
                         let route = route as? RestaurantDetailsRoute,
@@ -13,12 +21,16 @@ public struct RestaurantFeature {
                     else {
                         preconditionFailure("Expected HomeRoute")
                     }
-                    return RestaurantDetailsFactory.make(
+                    let viewModel = RestaurantDetailsViewModel(
                         restaurant: route.restaurantInputs.restaurant,
-                        delegate: bindings.delegate,
-                        deliveryClient: bindings.deliveryClient, // Think about this!
-                        onSomeButtonTapped: bindings.onTapSomething
+                        onTapSomething: bindings.onTapSomething
                     )
+                    let viewController = RestaurantDetailsViewController(
+                        viewModel: viewModel,
+                        deliveryClient: dependencies.deliveryClient
+                    )
+                    viewController.delegate = bindings.delegate
+                    return viewController
                 },
                 for: RestaurantDetailsRoute.self
             )

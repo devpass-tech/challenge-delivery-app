@@ -1,16 +1,13 @@
 import Foundation
 
-enum NetworkingError: Error {
+public enum NetworkingError: Error, LocalizedError {
     case decodeError
     case noData
     case invalidURL
     case invalidStatusCode
     case networkError
-}
-
-extension NetworkingError: LocalizedError {
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .decodeError:
             return "Ocorreu um erro com decode dos dados"

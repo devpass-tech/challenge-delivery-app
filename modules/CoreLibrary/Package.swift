@@ -12,16 +12,31 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "CoreModules",
-            targets: ["Navigation", "Networking", "Services", "ServicesInterface"]
+            targets: [
+                // Concrete
+                "DependencyInjection",
+                "Navigation",
+                "Networking",
+                "Services",
+                // Interfaces
+                "NetworkingInterface",
+                "ServicesInterface"
+            ]
+        ),
+        // Essentials
+        .library(
+            name: "DependencyInjection",
+            targets: ["DependencyInjection"]
         ),
         .library(
             name: "Navigation",
             targets: ["Navigation"]
         ),
         .library(
-            name: "Services",
-            targets: ["Services"]
+            name: "NetworkingInterface",
+            targets: ["NetworkingInterface"]
         ),
+        // Domain(-ish)
         .library(
             name: "ServicesInterface",
             targets: ["ServicesInterface"]
@@ -32,6 +47,11 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
+        // DependencyInjection
+        .target(
+            name: "DependencyInjection",
+            dependencies: []
+        ),
         // Navigation
         .target(
             name: "Navigation",
@@ -43,8 +63,14 @@ let package = Package(
         ),
         // Networking
         .target(
-            name: "Networking",
+            name: "NetworkingInterface",
             dependencies: []
+        ),
+        .target(
+            name: "Networking",
+            dependencies: [
+                "NetworkingInterface"
+            ]
         ),
         .testTarget(
             name: "NetworkingTests",
@@ -57,7 +83,10 @@ let package = Package(
         ),
         .target(
             name: "Services",
-            dependencies: ["ServicesInterface"],
+            dependencies: [
+                "ServicesInterface",
+                "NetworkingInterface"
+            ],
             resources: [
                 .process("Resources/home_restaurant_list.json"),
                 .process("Resources/restaurant_details.json")
@@ -66,6 +95,6 @@ let package = Package(
         .testTarget(
             name: "ServicesTests",
             dependencies: ["Services"]
-        ),
+        )
     ]
 )

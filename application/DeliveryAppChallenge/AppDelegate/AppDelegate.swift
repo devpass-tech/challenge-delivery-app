@@ -22,12 +22,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 }
-
-// TODO: Move somewhere
-import Networking
-
-extension NetworkRequest {
-    var baseURL: String {
-        "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/"
-    }
-}
